@@ -4,7 +4,13 @@ class Item {
         Item.VAT = 17;
     }
     set price(a) {
-        a > 0 ? (this._price = a) : new Error('Price cannot be 0 or lower!');
+        if (a > 0) {
+            this._price = a;
+        }
+        else {
+            throw new Error('Price cannot be 0 or lower!');
+        }
+        ;
     }
     displayDetails() {
     }

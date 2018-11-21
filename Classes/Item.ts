@@ -10,7 +10,9 @@ abstract class Item {
     }
     
     public set price(a: number) {
-        a > 0 ? (this._price = a) : new Error('Price cannot be 0 or lower!');
+        if (a > 0) {
+            this._price = a;
+        } else { throw new Error('Price cannot be 0 or lower!') };
     }
     
     public displayDetails() {
