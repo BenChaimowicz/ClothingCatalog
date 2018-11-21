@@ -1,0 +1,27 @@
+html {
+    height: 100%;
+}
+body {
+    height: inherit;
+    margin: 0;
+    display: flex;
+}
+#appContainer {
+    height: inherit;
+    width: 100%;
+    display: flex;
+    background-color: aliceblue;
+}
+#sideBar {
+    display: flex;
+    width:15%;
+    height: inherit;
+    border-right: 1px solid black;
+    background-color: #feb236;
+}
+#mainContainer {
+    display: flex;
+    width:85%;
+    height: inherit;
+    background-color: #6b5b95;
+}
