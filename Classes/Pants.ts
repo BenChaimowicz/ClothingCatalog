@@ -12,3 +12,4 @@ class RegularPants extends Pants {
 class Shorts extends Pants {
     private _fabric: string;
 }
+

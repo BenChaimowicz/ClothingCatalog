@@ -14,10 +14,14 @@ body {
 }
 #sideBar {
     display: flex;
+    flex-direction: column;
     width:15%;
     height: inherit;
     border-right: 1px solid black;
     background-color: #feb236;
+}
+#sideBar > button {
+    margin: auto;
 }
 #mainContainer {
     display: flex;
