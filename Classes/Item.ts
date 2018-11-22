@@ -8,11 +8,23 @@ abstract class Item {
     constructor() {
         Item.VAT = 17;
     }
-    
+    public set manufacturer(m: string) {
+        if (m == '' || m == undefined) {
+            throw new Error(emptyError);
+        } else { this._manufacturer = m };
+    }
+    public set model(m: string) {
+        if (m == '' || m == undefined) {
+            throw new Error(emptyError);
+        } else { this._model = m };
+    }
     public set price(a: number) {
         if (a > 0) {
             this._price = a;
         } else { throw new Error('Price cannot be 0 or lower!') };
+    }
+    public set image(img: string) {
+        this._imageURL = img;
     }
     
     public displayDetails() {
