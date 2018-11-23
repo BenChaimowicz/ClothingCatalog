@@ -1,4 +1,19 @@
+const possibleManufacturerNames:string[] = ['Melvin Fine', 'Rolo', 'Gastro', 'A2M', 'Barf Lauren', 'Lance', 'Dongy Middlefinger'];
+const possibleModelNames: string[] = ['Amore', 'Le Hate', 'Poopon', 'Bleh', 'Tre', 'Coup', 'Manly', 'Femme', 'Pedot', 'Bourbon', 'Canale','Piss','Urtne','Haggis'];
+
 class Generator { 
+    constructor() {
+        
+    }
+
+    private createManufacturers() {
+        for (let i = 0; i < possibleManufacturerNames.length; i++) {
+            let manufacturer: Manufacturer = new Manufacturer();
+            manufacturer.name = possibleManufacturerNames[i];
+            manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
+            manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
+        }
+    }
 
     public getRandomItem(){
         let item: any = this.createItemType();
@@ -21,15 +36,19 @@ class Generator {
         item instanceof OpticGlasses ? this.createOpticGlassses(item) : null;
     }
 
-    private randomFromArray(arr: any[]): any {
-        return (Math.floor(Math.random() * (arr.length)));
+    private randomFromArray(arr: any[], del: boolean = false): any {
+        let rnd: number = (Math.floor(Math.random() * (arr.length)));
+        if (del == true) {
+            let item: any = arr.splice(rnd, 1);
+            return item;
+        } else { return arr[rnd] };
     }
 
     private getRandomNumber(min: number, max: number): number {
         return (Math.floor(Math.random() * (max - min + 1) + min));
     }
 
-    private createItemType() :any {
+    private createItemType() : any {
         let num: number = this.getRandomNumber(1, 20);
         switch (num) {
             case 1:

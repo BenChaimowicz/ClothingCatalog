@@ -3,11 +3,11 @@ abstract class Shirt extends Item {
     private _sleeveLength: number;
     private _size: number;
 
-    private static readonly shirtColors: string[] = ['Red', 'Blue', 'Black', 'White', 'Yellow', 'Green', 'Pink', 'Purple'];
-    private static readonly maxShirtSize: number = 44;
-    private static readonly minShirtSize: number = 34;
-    private static readonly maxSleeveLength: number = 1.2;
-    private static readonly minSleeveLength: number = 0;
+    public static readonly shirtColors: string[] = ['Red', 'Blue', 'Black', 'White', 'Yellow', 'Green', 'Pink', 'Purple'];
+    public static readonly maxShirtSize: number = 44;
+    public static readonly minShirtSize: number = 34;
+    public static readonly maxSleeveLength: number = 1.2;
+    public static readonly minSleeveLength: number = 0;
 
     public set color(c: string) {
         let match: boolean = false;
@@ -44,9 +44,9 @@ class TShirt extends Shirt {
 class ButtonedShirt extends Shirt {
     private _buttons: number;
 
-    private static readonly buttonError: string = 'Invalid button number!';
-    private static readonly minButtonCount: number = 4;
-    private static readonly maxButtonCount: number = 7;
+    public static readonly buttonError: string = 'Invalid button number!';
+    public static readonly minButtonCount: number = 4;
+    public static readonly maxButtonCount: number = 7;
 
     public set buttons(b: number) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {
@@ -57,7 +57,7 @@ class ButtonedShirt extends Shirt {
 class WomenShirt extends Shirt {
     private _fabric: string;
 
-    private static readonly shirtFabrics: string[] = ['Cotton', 'Wool', 'Linen', 'Polyester'];
+    public static readonly shirtFabrics: string[] = ['Cotton', 'Wool', 'Linen', 'Polyester'];
 
     public set fabric(f: string) {
         let match: boolean = false;
