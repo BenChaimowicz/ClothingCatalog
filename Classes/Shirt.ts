@@ -35,6 +35,8 @@ abstract class Shirt extends Item {
 class TShirt extends Shirt {
     private _text: string;
 
+    public static readonly TShirtText: string[] = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
+
     public set text(txt: string) {
         if (txt != '' || txt != undefined) {
             this._text = txt;

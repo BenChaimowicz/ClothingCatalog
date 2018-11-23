@@ -3,7 +3,7 @@ const possibleModelNames: string[] = ['Amore', 'Le Hate', 'Poopon', 'Bleh', 'Tre
 
 class Generator { 
     constructor() {
-        
+        this.createManufacturers();
     }
 
     private createManufacturers() {
@@ -12,6 +12,7 @@ class Generator {
             manufacturer.name = possibleManufacturerNames[i];
             manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
             manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
+            Manufacturers.ManufacturerList.push(manufacturer);
         }
     }
 
@@ -21,17 +22,23 @@ class Generator {
         item instanceof TShirt ? this.createTShirt(item) : null;
         item instanceof ButtonedShirt ? this.createBShirt(item) : null;
         item instanceof WomenShirt ? this.createWShirt(item) : null;
+
         item instanceof Jeans ? this.createJeans(item) : null;
         item instanceof RegularPants ? this.createRPants(item) : null;
         item instanceof Shorts ? this.createShorts(item) : null;
+
         item instanceof Skirt ? this.createSkirt(item) : null;
         item instanceof Dress ? this.createDress(item) : null;
         item instanceof NightDress ? this.createNDress(item) : null;
+
         item instanceof Blazer ? this.createBlazer(item) : null;
         item instanceof Coat ? this.createCoat(item) : null;
+
         item instanceof Cap ? this.createCap(item) : null;
         item instanceof TopHat ? this.createTHat(item) : null;
+
         item instanceof Belt ? this.createBelt(item) : null;
+
         item instanceof SunGlasses ? this.createSunGlasses(item) : null;
         item instanceof OpticGlasses ? this.createOpticGlassses(item) : null;
     }
@@ -94,7 +101,30 @@ class Generator {
         }
     }
 
+    private shirtStandards(shirt: Shirt) {
+        shirt.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        shirt.model = this.randomFromArray(Manufacturers.modelsByManufacturer(shirt.manufacturer));
+        shirt.size = this.getRandomNumber(Shirt.minShirtSize, Shirt.maxShirtSize);
+        shirt.color = this.randomFromArray(Shirt.shirtColors);
+        shirt.sleeveLength = this.getRandomNumber(Shirt.minSleeveLength, Shirt.maxSleeveLength);
+    }
     private createTShirt(tshirt: TShirt) {
-        
+        this.shirtStandards(tshirt);
+        tshirt.text = this.randomFromArray(TShirt.TShirtText);
+    }
+    private createBShirt(bshirt: ButtonedShirt) {
+        this.shirtStandards(bshirt);
+        bshirt.buttons = this.getRandomNumber(ButtonedShirt.minButtonCount, ButtonedShirt.maxButtonCount);
+    }
+    private createWShirt(wshirt: WomenShirt) {
+        this.shirtStandards(wshirt);
+        wshirt.fabric = this.randomFromArray(WomenShirt.shirtFabrics);
+    }
+    private pantsStandards(pants: Pants) {
+        pants.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        pants.model = this.randomFromArray(Manufacturers.modelsByManufacturer(pants.manufacturer));
+        pants.size = this.getRandomNumber(pants.minpantsSize, pants.maxpantsSize);
+        pants.color = this.randomFromArray(pants.pantsColors);
+        pants.pantlength = this.getRandomNumber(pants.minSleeveLength, pants.maxSleeveLength);
     }
 }

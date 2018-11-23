@@ -1,5 +1,13 @@
 abstract class Manufacturers {
     public static ManufacturerList: Manufacturer[] = [];
+
+    public static modelsByManufacturer(manu: string): string[]{
+        for (let i = 0; i < Manufacturers.ManufacturerList.length; i++){
+            if (manu === Manufacturers.ManufacturerList[i].name) {
+                return Manufacturers.ManufacturerList[i].models;
+            }
+        }
+    }
 }
 
 class Manufacturer {
@@ -20,5 +28,6 @@ class Manufacturer {
     public get models(): string[]{
         return this._models;
     }
+
 }
 
