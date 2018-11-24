@@ -71,7 +71,12 @@ class Shorts extends Pants {
     public static readonly fabrics: string[] = ['Cotton', 'Polyester', 'Khaki', 'Rayon', 'Linen'];
 
     public set fabric(f: string) {
-        Shorts.fabrics.findIndex((elem) => { return elem == f });
+        if (Shorts.fabrics.findIndex(function(elem) { return elem === f }) >= 0){
+            this._fabric = f;
+        } else { throw new Error(fabricError) };
+    }
+    public get fabric(): string {
+        return this._fabric;
     }
 }
 
