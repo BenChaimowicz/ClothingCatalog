@@ -16,20 +16,27 @@ class Generator {
     }
     getRandomItem() {
         let item = this.createItemType();
+        // Shirts
         item instanceof TShirt ? this.createTShirt(item) : null;
         item instanceof ButtonedShirt ? this.createBShirt(item) : null;
         item instanceof WomenShirt ? this.createWShirt(item) : null;
+        // Pants
         item instanceof Jeans ? this.createJeans(item) : null;
         item instanceof RegularPants ? this.createRPants(item) : null;
         item instanceof Shorts ? this.createShorts(item) : null;
+        // Dresses
         item instanceof Skirt ? this.createSkirt(item) : null;
         item instanceof Dress ? this.createDress(item) : null;
         item instanceof NightDress ? this.createNDress(item) : null;
+        // Jackets
         item instanceof Blazer ? this.createBlazer(item) : null;
         item instanceof Coat ? this.createCoat(item) : null;
+        // Hats
         item instanceof Cap ? this.createCap(item) : null;
         item instanceof TopHat ? this.createTHat(item) : null;
+        // Belt
         item instanceof Belt ? this.createBelt(item) : null;
+        // Glasses
         item instanceof SunGlasses ? this.createSunGlasses(item) : null;
         item instanceof OpticGlasses ? this.createOpticGlassses(item) : null;
     }
@@ -45,7 +52,18 @@ class Generator {
         ;
     }
     getRandomNumber(min, max) {
-        return (Math.floor(Math.random() * (max - min + 1) + min));
+        let rnd = (Math.floor(Math.random() * (max - min + 1) + min));
+        if (min != 0 && max != 1) {
+            return rnd;
+        }
+        else {
+            if (rnd > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }
     createItemType() {
         let num = this.getRandomNumber(1, 20);
@@ -140,5 +158,21 @@ class Generator {
     womenClothesStandards(c) {
         c.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
         c.model = this.randomFromArray(Manufacturers.modelsByManufacturer(c.manufacturer));
+        c.color = this.randomFromArray(WomenClothes.wColors);
+        c.size = this.getRandomNumber(WomenClothes.minSize, WomenClothes.maxSize);
+        c.perimiter = this.getRandomNumber(WomenClothes.minPerimiter, WomenClothes.maxPerimiter);
+    }
+    createSkirt(skirt) {
+        this.womenClothesStandards(skirt);
+        skirt.longSkirt = this.getRandomNumber(0, 1);
+    }
+    createDress(dress) {
+        this.womenClothesStandards(dress);
+        dress.dressLength = this.getRandomNumber(Dress.minLength, Dress.maxLength);
+        dress.bareback = this.getRandomNumber(0, 1);
+    }
+    createNDress(nDress) {
+        this.createDress(nDress);
+        nDress.fabric = this.randomFromArray(NightDress.NDressFabrics);
     }
 }
