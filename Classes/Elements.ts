@@ -5,5 +5,6 @@ const lengthError: string = 'Length entered is out of boundary!';
 const sizeError: string = 'Size entered is not allowed!';
 const fabricError: string = 'No such fabric for this item!';
 const pocketError: string = 'Invalid number of pockets!';
+const perimiterError: string = 'Invalid perimiter entered!';
 
 let generator: Generator = new Generator();

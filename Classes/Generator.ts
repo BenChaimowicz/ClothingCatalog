@@ -142,4 +142,9 @@ class Generator {
         shorts.pantLength = this.getRandomNumber(Shorts.minLength, Shorts.maxLength);
         shorts.fabric = this.randomFromArray(Shorts.fabrics);
     }
+    private womenClothesStandards(c: WomenClothes) {
+        c.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        c.model = this.randomFromArray(Manufacturers.modelsByManufacturer(c.manufacturer));
+        
+    }
 }
