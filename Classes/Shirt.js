@@ -49,6 +49,7 @@ class TShirt extends Shirt {
         ;
     }
 }
+TShirt.TShirtText = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
 class ButtonedShirt extends Shirt {
     set buttons(b) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {

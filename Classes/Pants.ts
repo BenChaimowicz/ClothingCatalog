@@ -23,7 +23,7 @@ abstract class Pants extends Item {
     public get color(): string{
         return this._color;
     }
-    public set pantsLength(plen: number) {
+    public set pantLength(plen: number) {
         if (plen < Pants.minLength || plen > Pants.maxLength) {
             throw new Error(lengthError);
         } else { this._pantLength = plen };
@@ -68,6 +68,8 @@ class RegularPants extends Pants {
 class Shorts extends Pants {
     private _fabric: string;
 
+    public static readonly minLength: number = 0.2;
+    public static readonly maxLength: number = 0.5;
     public static readonly fabrics: string[] = ['Cotton', 'Polyester', 'Khaki', 'Rayon', 'Linen'];
 
     public set fabric(f: string) {

@@ -123,8 +123,23 @@ class Generator {
     private pantsStandards(pants: Pants) {
         pants.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
         pants.model = this.randomFromArray(Manufacturers.modelsByManufacturer(pants.manufacturer));
-        pants.size = this.getRandomNumber(pants.minpantsSize, pants.maxpantsSize);
-        pants.color = this.randomFromArray(pants.pantsColors);
-        pants.pantlength = this.getRandomNumber(pants.minSleeveLength, pants.maxSleeveLength);
+        pants.size = this.getRandomNumber(Pants.minSize, Pants.maxSize);
+        pants.color = this.randomFromArray(Pants.pantsColors);
+        pants.pantLength = this.getRandomNumber(Pants.minLength, Pants.maxLength);
+    }
+    private createJeans(jeans: Jeans) {
+        this.pantsStandards(jeans);
+        if (this.getRandomNumber(0, 1) > 0) {
+            jeans.ripped = true;
+        } else { jeans.ripped = false; };
+    }
+    private createRPants(rPants: RegularPants) {
+        this.pantsStandards(rPants);
+        rPants.pockets = this.getRandomNumber(RegularPants.minPockets, RegularPants.maxPockets);
+    }
+    private createShorts(shorts: Shorts) {
+        this.pantsStandards(shorts);
+        shorts.pantLength = this.getRandomNumber(Shorts.minLength, Shorts.maxLength);
+        shorts.fabric = this.randomFromArray(Shorts.fabrics);
     }
 }
