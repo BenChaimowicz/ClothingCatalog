@@ -172,7 +172,6 @@ class Generator {
         dress.bareback = this.getRandomNumber(0, 1);
     }
     createNDress(nDress) {
-        this.createDress(nDress);
         nDress.fabric = this.randomFromArray(NightDress.NDressFabrics);
     }
     jacketStandards(jacket) {
