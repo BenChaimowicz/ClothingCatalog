@@ -175,4 +175,19 @@ class Generator {
         this.createDress(nDress);
         nDress.fabric = this.randomFromArray(NightDress.NDressFabrics);
     }
+    jacketStandards(jacket) {
+        jacket.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        jacket.model = this.randomFromArray(Manufacturers.modelsByManufacturer(jacket.manufacturer));
+        jacket.color = this.randomFromArray(Jacket.JacketColors);
+        jacket.size = this.getRandomNumber(Jacket.minSize, Jacket.maxSize);
+        jacket.thickness = this.getRandomNumber(Jacket.minThickness, Jacket.maxThickness);
+    }
+    createBlazer(blazer) {
+        this.jacketStandards(blazer);
+        blazer.pockets = this.getRandomNumber(Blazer.minPockets, Blazer.maxPockets);
+    }
+    createCoat(coat) {
+        this.jacketStandards(coat);
+        coat.raincoat = this.getRandomNumber(0, 1);
+    }
 }

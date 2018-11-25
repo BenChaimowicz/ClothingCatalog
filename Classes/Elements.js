@@ -8,4 +8,5 @@ const fabricError = 'No such fabric for this item!';
 const pocketError = 'Invalid number of pockets!';
 const perimiterError = 'Invalid perimiter entered!';
 const thicknessError = 'Invalid thickness value!';
+const heightError = 'Height entered is invalid!';
 let generator = new Generator();
