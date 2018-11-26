@@ -56,18 +56,22 @@ class Generator {
         }
         ;
     }
-    getRandomNumber(min, max) {
-        let rnd = (Math.floor(Math.random() * (max - min + 1) + min));
-        if (min != 0 && max != 1) {
-            return rnd;
-        }
-        else {
+    getRandomNumber(min, max, fraction) {
+        if (min === 0 && max === 1) {
+            let rnd = (Math.floor(Math.random() * (max - min + 1) + min));
             if (rnd > 0) {
                 return true;
             }
             else {
                 return false;
             }
+        }
+        if (!fraction) {
+            let rnd = (Math.floor(Math.random() * (max - min + 1) + min));
+            return rnd;
+        }
+        else {
+            return parseFloat((Math.random() * (max - min) + min).toFixed(2));
         }
     }
     createItemType() {
@@ -120,7 +124,7 @@ class Generator {
         shirt.model = this.randomFromArray(Manufacturers.modelsByManufacturer(shirt.manufacturer));
         shirt.size = this.getRandomNumber(Shirt.minShirtSize, Shirt.maxShirtSize);
         shirt.color = this.randomFromArray(Shirt.shirtColors);
-        shirt.sleeveLength = this.getRandomNumber(Shirt.minSleeveLength, Shirt.maxSleeveLength);
+        shirt.sleeveLength = this.getRandomNumber(Shirt.minSleeveLength, Shirt.maxSleeveLength, true);
     }
     createTShirt(tshirt) {
         this.shirtStandards(tshirt);
@@ -139,7 +143,7 @@ class Generator {
         pants.model = this.randomFromArray(Manufacturers.modelsByManufacturer(pants.manufacturer));
         pants.size = this.getRandomNumber(Pants.minSize, Pants.maxSize);
         pants.color = this.randomFromArray(Pants.pantsColors);
-        pants.pantLength = this.getRandomNumber(Pants.minLength, Pants.maxLength);
+        pants.pantLength = this.getRandomNumber(Pants.minLength, Pants.maxLength, true);
     }
     createJeans(jeans) {
         this.pantsStandards(jeans);
@@ -157,7 +161,7 @@ class Generator {
     }
     createShorts(shorts) {
         this.pantsStandards(shorts);
-        shorts.pantLength = this.getRandomNumber(Shorts.minLength, Shorts.maxLength);
+        shorts.pantLength = this.getRandomNumber(Shorts.minLength, Shorts.maxLength, true);
         shorts.fabric = this.randomFromArray(Shorts.fabrics);
     }
     womenClothesStandards(c) {
@@ -184,7 +188,7 @@ class Generator {
         jacket.model = this.randomFromArray(Manufacturers.modelsByManufacturer(jacket.manufacturer));
         jacket.color = this.randomFromArray(Jacket.JacketColors);
         jacket.size = this.getRandomNumber(Jacket.minSize, Jacket.maxSize);
-        jacket.thickness = this.getRandomNumber(Jacket.minThickness, Jacket.maxThickness);
+        jacket.thickness = this.getRandomNumber(Jacket.minThickness, Jacket.maxThickness, true);
     }
     createBlazer(blazer) {
         this.jacketStandards(blazer);
@@ -235,6 +239,16 @@ class Generator {
     }
     createTHat(tophat) {
         this.hatStandards(tophat);
-        tophat.height = this.getRandomNumber(TopHat.minHeight, TopHat.maxHeight);
+        tophat.height = this.getRandomNumber(TopHat.minHeight, TopHat.maxHeight, true);
+    }
+    createBelt(belt) {
+        belt.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        belt.model = this.randomFromArray(Manufacturers.modelsByManufacturer(belt.manufacturer));
+        belt.beltColor = this.randomFromArray(Belt.BeltColors);
+        belt.buckleColor = this.randomFromArray(Belt.BuckleColors);
+        belt.buckleMaterial = this.randomFromArray(Belt.BuckleMaterials);
+        belt.beltDimensions.height = this.getRandomNumber(Dimensions.minHeight, Dimensions.maxHeight, true);
+        belt.beltDimensions.length = this.getRandomNumber(Dimensions.minLength, Dimensions.maxLength, true);
+        belt.beltDimensions.width = this.getRandomNumber(Dimensions.minWidth, Dimensions.maxWidth, true);
     }
 }

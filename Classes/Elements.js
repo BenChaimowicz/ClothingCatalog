@@ -13,4 +13,5 @@ const countryError = 'This country does not manufacture these shoes!';
 const materialError = 'This material is not valid.';
 const dateError = 'Date is invalid!';
 const heelError = 'No such type of heel!';
+const distanceError = 'Invalid distance!';
 let generator = new Generator();
