@@ -26,6 +26,10 @@ abstract class Hat extends Item {
 class Cap extends Hat {
     private _ad: boolean;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/16.jpg';
+    }
     public set ad(ad: boolean) { this._ad = ad };
     public get ad(): boolean { return this._ad };
 }
@@ -35,6 +39,10 @@ class TopHat extends Hat {
     public static readonly minHeight: number = 0.2;
     public static readonly maxHeight: number = 0.8;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/17.jpg';
+    }
     public set height(h: number) {
         if (h < TopHat.minHeight || h > TopHat.maxHeight) {
             throw new Error(heightError);

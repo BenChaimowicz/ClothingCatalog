@@ -40,6 +40,10 @@ Jacket.maxThickness = 0.08;
 Jacket.minSize = 36;
 Jacket.maxSize = 52;
 class Blazer extends Jacket {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/14.jpg';
+    }
     set pockets(p) {
         if (p < Blazer.minPockets || p > Blazer.maxPockets) {
             throw new Error(pocketError);
@@ -55,6 +59,10 @@ class Blazer extends Jacket {
 Blazer.minPockets = 0;
 Blazer.maxPockets = 6;
 class Coat extends Jacket {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/15.jpg';
+    }
     set raincoat(r) {
         this._raincoat = r;
     }

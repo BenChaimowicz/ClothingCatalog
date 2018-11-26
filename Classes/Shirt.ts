@@ -37,6 +37,10 @@ class TShirt extends Shirt {
 
     public static readonly TShirtText: string[] = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/01.jpg';
+    }
     public set text(txt: string) {
         if (txt != '' || txt != undefined) {
             this._text = txt;
@@ -50,6 +54,10 @@ class ButtonedShirt extends Shirt {
     public static readonly minButtonCount: number = 4;
     public static readonly maxButtonCount: number = 7;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/02.jpg';
+    }
     public set buttons(b: number) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {
             throw new Error(ButtonedShirt.buttonError);
@@ -61,6 +69,10 @@ class WomenShirt extends Shirt {
 
     public static readonly shirtFabrics: string[] = ['Cotton', 'Wool', 'Linen', 'Polyester'];
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/03.jpg';
+    }
     public set fabric(f: string) {
         let match: boolean = false;
         for (let i = 0; i < WomenShirt.shirtFabrics.length; i++){

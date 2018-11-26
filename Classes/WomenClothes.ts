@@ -28,11 +28,17 @@ abstract class WomenClothes extends Item {
     }
     public get size(): number { return this._size };
 }
+
 class Skirt extends WomenClothes{
     private _isLongSkirt: boolean;
 
     public set longSkirt(s: boolean) { this._isLongSkirt = s };
     public get longSkirt(): boolean { return this._isLongSkirt };
+
+    constructor() {
+        super();
+        this.image = '../Assets/Images/07.jpg';
+    }
 }
 class Dress extends WomenClothes{
     private _dressLength: number;
@@ -41,6 +47,10 @@ class Dress extends WomenClothes{
     public static readonly minLength: number = 1;
     public static readonly maxLength: number = 1.8;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/08.jpg';
+    }
     public set dressLength(l: number) {
         if (l < Dress.minLength || l > Dress.maxLength) {
             throw new Error(lengthError);
@@ -54,6 +64,11 @@ class NightDress extends Dress{
     private _fabric: string;
 
     public static readonly NDressFabrics: string[] = ['Silk', 'Cotton', 'Polyester', 'Wool', 'Linen'];
+
+    constructor() {
+        super();
+        this.image = '../Assets/Images/09.jpg';
+    }
 
     public set fabric(f: string) {
         if (NightDress.NDressFabrics.findIndex(fa => { return fa === f }) > 0) {

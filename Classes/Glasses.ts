@@ -21,6 +21,10 @@ class SunGlasses extends Glasses {
 
     public static readonly ShadeColors: string[] = ['Black', 'Yellow', 'Red', 'Blue', 'Rainbow'];
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/19.jpg';
+    }
     public set glassColor(gc: string) {
         if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc }) > 0) {
             this._glassColor = gc;
@@ -33,6 +37,10 @@ class OpticGlasses extends Glasses{
     public static readonly minReadDistance: number = 0.2;
     public static readonly maxReadDistance: number = 3;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/20.jpg';
+    }
     public set readDistance(rd: number) {
         if (rd < OpticGlasses.minReadDistance || rd > OpticGlasses.maxReadDistance) {
             throw new Error(distanceError);

@@ -43,6 +43,10 @@ abstract class Pants extends Item {
 class Jeans extends Pants {
     private _ripped: boolean;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/04.jpg';
+    }
     public set ripped(r: boolean) {
         this._ripped = r;
     }
@@ -56,6 +60,10 @@ class RegularPants extends Pants {
     public static readonly minPockets: number = 2;
     public static readonly maxPockets: number = 8;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/05.jpg';
+    }
     public set pockets(po: number) {
         if (po < RegularPants.minPockets || po > RegularPants.maxPockets) {
             throw new Error(pocketError);
@@ -72,6 +80,10 @@ class Shorts extends Pants {
     public static readonly maxLength: number = 0.5;
     public static readonly fabrics: string[] = ['Cotton', 'Polyester', 'Khaki', 'Rayon', 'Linen'];
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/06.jpg';
+    }
     public set fabric(f: string) {
         if (Shorts.fabrics.findIndex(function(elem) { return elem === f }) >= 0){
             this._fabric = f;

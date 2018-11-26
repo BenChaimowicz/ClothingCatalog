@@ -39,6 +39,10 @@ Shoes.Countries = ['China', 'Italy', 'Israel', 'USA', 'Germany', 'Taiwan', 'Viet
 Shoes.minSize = 34;
 Shoes.maxSize = 46;
 class ElegantShoes extends Shoes {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/10.jpg';
+    }
     set laces(l) { this._laces = l; }
     ;
     get laces() { return this._laces; }
@@ -57,6 +61,10 @@ class ElegantShoes extends Shoes {
 }
 ElegantShoes.eShoesMaterials = ['Leather', 'Cotton', 'Linen', 'Wood', 'Suede'];
 class SportShoes extends Shoes {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/11.jpg';
+    }
     set laces(l) { this._laces = l; }
     ;
     get laces() { return this._laces; }
@@ -74,6 +82,10 @@ class SportShoes extends Shoes {
     ;
 }
 class ComfyShoes extends Shoes {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/12.jpg';
+    }
     set laces(l) { this._laces = l; }
     ;
     get laces() { return this._laces; }
@@ -84,6 +96,10 @@ class ComfyShoes extends Shoes {
     ;
 }
 class Heels extends Shoes {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/13.jpg';
+    }
     set heel(h) {
         if (Heels.HeelTypes.findIndex(ele => { return ele === h; }) > 0) {
             this._heelType = h;

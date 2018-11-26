@@ -34,6 +34,10 @@ class ElegantShoes extends Shoes {
 
     public static readonly eShoesMaterials: string[] = ['Leather', 'Cotton', 'Linen', 'Wood', 'Suede'];
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/10.jpg';
+    }
     public set laces(l: boolean) { this._laces = l };
     public get laces(): boolean { return this._laces };
     public set material(m: string) {
@@ -43,10 +47,15 @@ class ElegantShoes extends Shoes {
     }
     public get material(): string { return this._material };
 }
+
 class SportShoes extends Shoes{
     private _laces: boolean;
     private _manufactureDate: Date;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/11.jpg';
+    }
     public set laces(l: boolean) { this._laces = l };
     public get laces(): boolean { return this._laces };
     public set manufactureDate(date: Date) {
@@ -60,6 +69,10 @@ class ComfyShoes extends Shoes {
     private _laces: boolean;
     private _orthopedic: boolean;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/12.jpg';
+    }
     public set laces(l: boolean) { this._laces = l };
     public get laces(): boolean { return this._laces };
     public set orthopedic(o: boolean) { this._orthopedic = o };
@@ -70,6 +83,10 @@ class Heels extends Shoes {
 
     public static readonly HeelTypes: string[] = ['Low', 'Medium', 'High'];
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/13.jpg';
+    }
     public set heel(h: string) {
         if (Heels.HeelTypes.findIndex(ele => { return ele === h }) > 0) {
             this._heelType = h;

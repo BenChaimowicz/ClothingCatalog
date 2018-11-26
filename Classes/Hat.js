@@ -32,12 +32,20 @@ Hat.maxDiameter = 70;
 Hat.minSize = Hat.minDiameter;
 Hat.maxSize = Hat.maxDiameter;
 class Cap extends Hat {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/16.jpg';
+    }
     set ad(ad) { this._ad = ad; }
     ;
     get ad() { return this._ad; }
     ;
 }
 class TopHat extends Hat {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/17.jpg';
+    }
     set height(h) {
         if (h < TopHat.minHeight || h > TopHat.maxHeight) {
             throw new Error(heightError);

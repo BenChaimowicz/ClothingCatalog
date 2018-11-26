@@ -34,6 +34,10 @@ class Blazer extends Jacket{
     public static readonly minPockets: number = 0;
     public static readonly maxPockets: number = 6;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/14.jpg';
+    }
     public set pockets(p: number) {
         if (p < Blazer.minPockets || p > Blazer.maxPockets) {
             throw new Error(pocketError);
@@ -44,6 +48,10 @@ class Blazer extends Jacket{
 class Coat extends Jacket{
     private _raincoat: boolean;
 
+    constructor() {
+        super();
+        this.image = '../Assets/Images/15.jpg';
+    }
     public set raincoat(r: boolean) {
         this._raincoat = r;
     }

@@ -39,6 +39,10 @@ Shirt.minShirtSize = 34;
 Shirt.maxSleeveLength = 1.2;
 Shirt.minSleeveLength = 0;
 class TShirt extends Shirt {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/01.jpg';
+    }
     set text(txt) {
         if (txt != '' || txt != undefined) {
             this._text = txt;
@@ -51,6 +55,10 @@ class TShirt extends Shirt {
 }
 TShirt.TShirtText = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
 class ButtonedShirt extends Shirt {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/02.jpg';
+    }
     set buttons(b) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {
             throw new Error(ButtonedShirt.buttonError);
@@ -65,6 +73,10 @@ ButtonedShirt.buttonError = 'Invalid button number!';
 ButtonedShirt.minButtonCount = 4;
 ButtonedShirt.maxButtonCount = 7;
 class WomenShirt extends Shirt {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/03.jpg';
+    }
     set fabric(f) {
         let match = false;
         for (let i = 0; i < WomenShirt.shirtFabrics.length; i++) {

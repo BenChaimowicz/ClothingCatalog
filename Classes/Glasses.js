@@ -25,6 +25,10 @@ class Glasses extends Item {
 }
 Glasses.GlassColors = ['Black', 'White', 'Red', 'Brown', 'Silver', 'Gold'];
 class SunGlasses extends Glasses {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/19.jpg';
+    }
     set glassColor(gc) {
         if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc; }) > 0) {
             this._glassColor = gc;
@@ -37,6 +41,10 @@ class SunGlasses extends Glasses {
 }
 SunGlasses.ShadeColors = ['Black', 'Yellow', 'Red', 'Blue', 'Rainbow'];
 class OpticGlasses extends Glasses {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/20.jpg';
+    }
     set readDistance(rd) {
         if (rd < OpticGlasses.minReadDistance || rd > OpticGlasses.maxReadDistance) {
             throw new Error(distanceError);

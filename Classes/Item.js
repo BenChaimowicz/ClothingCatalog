@@ -12,6 +12,8 @@ class Item {
         }
         ;
     }
+    get manufacturer() { return this._manufacturer; }
+    ;
     set model(m) {
         if (m == '' || m == undefined) {
             throw new Error(emptyError);
@@ -21,6 +23,8 @@ class Item {
         }
         ;
     }
+    get model() { return this._model; }
+    ;
     set price(a) {
         if (a > 0) {
             this._price = a;
@@ -30,9 +34,10 @@ class Item {
         }
         ;
     }
-    set image(img) {
-        this._imageURL = img;
-    }
+    get price() { return this._price; }
+    ;
+    set image(img) { this._imageURL = img; }
+    ;
     displayDetails() {
     }
     displayImage() {

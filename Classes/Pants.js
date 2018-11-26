@@ -48,6 +48,10 @@ Pants.maxLength = 1.3;
 Pants.minSize = 36;
 Pants.maxSize = 48;
 class Jeans extends Pants {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/04.jpg';
+    }
     set ripped(r) {
         this._ripped = r;
     }
@@ -56,6 +60,10 @@ class Jeans extends Pants {
     }
 }
 class RegularPants extends Pants {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/05.jpg';
+    }
     set pockets(po) {
         if (po < RegularPants.minPockets || po > RegularPants.maxPockets) {
             throw new Error(pocketError);
@@ -72,6 +80,10 @@ class RegularPants extends Pants {
 RegularPants.minPockets = 2;
 RegularPants.maxPockets = 8;
 class Shorts extends Pants {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/06.jpg';
+    }
     set fabric(f) {
         if (Shorts.fabrics.findIndex(function (elem) { return elem === f; }) >= 0) {
             this._fabric = f;

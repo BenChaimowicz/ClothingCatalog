@@ -44,8 +44,16 @@ class Skirt extends WomenClothes {
     ;
     get longSkirt() { return this._isLongSkirt; }
     ;
+    constructor() {
+        super();
+        this.image = '../Assets/Images/07.jpg';
+    }
 }
 class Dress extends WomenClothes {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/08.jpg';
+    }
     set dressLength(l) {
         if (l < Dress.minLength || l > Dress.maxLength) {
             throw new Error(lengthError);
@@ -65,6 +73,10 @@ class Dress extends WomenClothes {
 Dress.minLength = 1;
 Dress.maxLength = 1.8;
 class NightDress extends Dress {
+    constructor() {
+        super();
+        this.image = '../Assets/Images/09.jpg';
+    }
     set fabric(f) {
         if (NightDress.NDressFabrics.findIndex(fa => { return fa === f; }) > 0) {
             this._fabric = f;

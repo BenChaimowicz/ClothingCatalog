@@ -10,6 +10,7 @@ class Belt extends Item {
 
     constructor() {
         super();
+        this.image = '../Assets/Images/18.jpg';
         this._beltDim = new Dimensions();
     }
 
