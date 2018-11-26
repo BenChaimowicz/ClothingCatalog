@@ -43,7 +43,7 @@ class Generator {
         item instanceof Belt ? this.createBelt(item) : null;
         // Glasses
         item instanceof SunGlasses ? this.createSunGlasses(item) : null;
-        item instanceof OpticGlasses ? this.createOpticGlassses(item) : null;
+        item instanceof OpticGlasses ? this.createOpticGlasses(item) : null;
     }
     randomFromArray(arr, del = false) {
         let rnd = (Math.floor(Math.random() * (arr.length)));
@@ -250,5 +250,18 @@ class Generator {
         belt.beltDimensions.height = this.getRandomNumber(Dimensions.minHeight, Dimensions.maxHeight, true);
         belt.beltDimensions.length = this.getRandomNumber(Dimensions.minLength, Dimensions.maxLength, true);
         belt.beltDimensions.width = this.getRandomNumber(Dimensions.minWidth, Dimensions.maxWidth, true);
+    }
+    GlassesStandards(glasses) {
+        glasses.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        glasses.model = this.randomFromArray(Manufacturers.modelsByManufacturer(glasses.manufacturer));
+        glasses.frameColor = this.randomFromArray(Glasses.GlassColors);
+    }
+    createSunGlasses(sGlasses) {
+        this.GlassesStandards(sGlasses);
+        sGlasses.glassColor = this.randomFromArray(SunGlasses.ShadeColors);
+    }
+    createOpticGlasses(oGlasses) {
+        this.GlassesStandards(oGlasses);
+        oGlasses.readDistance = this.getRandomNumber(OpticGlasses.minReadDistance, OpticGlasses.maxReadDistance, true);
     }
 }
