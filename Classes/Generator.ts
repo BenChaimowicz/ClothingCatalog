@@ -33,6 +33,11 @@ class Generator {
         // Jackets
         item instanceof Blazer ? this.createBlazer(item) : null;
         item instanceof Coat ? this.createCoat(item) : null;
+        // Shoes
+        item instanceof ElegantShoes ? this.createEShoes(item) : null;
+        item instanceof SportShoes ? this.createSShoes(item) : null;
+        item instanceof ComfyShoes ? this.createCShoes(item) : null;
+        item instanceof Heels ? this.createHeels(item) : null;
         // Hats
         item instanceof Cap ? this.createCap(item) : null;
         item instanceof TopHat ? this.createTHat(item) : null;
@@ -181,5 +186,36 @@ class Generator {
     private createCoat(coat: Coat) {
         this.jacketStandards(coat);
         coat.raincoat = this.getRandomNumber(0, 1);
+    }
+    private shoeStandards(shoe: Shoes) {
+        shoe.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        shoe.model = this.randomFromArray(Manufacturers.modelsByManufacturer(shoe.manufacturer));
+        shoe.color = this.randomFromArray(Shoes.ShoeColors);
+        shoe.size = this.getRandomNumber(Shoes.minSize, Shoes.maxSize);
+        shoe.madeIn = this.randomFromArray(Shoes.Countries);
+    }
+    private createEShoes(shoes: ElegantShoes) {
+        this.shoeStandards(shoes);
+        shoes.laces = this.getRandomNumber(0, 1);
+        shoes.material = this.randomFromArray(ElegantShoes.eShoesMaterials);
+    }
+    private createSShoes(shoes: SportShoes) {
+        this.shoeStandards(shoes);
+        shoes.laces = this.getRandomNumber(0, 1);
+        shoes.manufactureDate = randomDate(new Date(2012, 1, 1), new Date());
+        
+        function randomDate(start:Date, end:Date):Date {
+            return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+          }
+          
+    }
+    private createCShoes(shoes: ComfyShoes) {
+        this.shoeStandards(shoes);
+        shoes.laces = this.getRandomNumber(0, 1);
+        shoes.orthopedic = this.getRandomNumber(0, 1);
+    }
+    private createHeels(heels: Heels) {
+        this.shoeStandards(heels);
+        heels.heel = this.randomFromArray(Heels.HeelTypes);
     }
 }
