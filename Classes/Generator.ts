@@ -218,4 +218,18 @@ class Generator {
         this.shoeStandards(heels);
         heels.heel = this.randomFromArray(Heels.HeelTypes);
     }
+    private hatStandards(hat: Hat) {
+        hat.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        hat.model = this.randomFromArray(Manufacturers.modelsByManufacturer(hat.manufacturer));
+        hat.color = this.randomFromArray(Hat.HatColors);
+        hat.setDiameterAndSize = this.getRandomNumber(Hat.minDiameter, Hat.maxDiameter);
+    }
+    private createCap(cap: Cap) {
+        this.hatStandards(cap);
+        cap.ad = this.getRandomNumber(0, 1);
+    }
+    private createTHat(tophat: TopHat) {
+        this.hatStandards(tophat);
+        tophat.height = this.getRandomNumber(TopHat.minHeight, TopHat.maxHeight);
+    }
 }
