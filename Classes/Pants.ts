@@ -43,15 +43,19 @@ abstract class Pants extends Item {
 class Jeans extends Pants {
     private _ripped: boolean;
 
+    public static readonly minPrice: number = 149;
+    public static readonly maxPrice: number = 349;
+
     constructor() {
         super();
         this.image = '../Assets/Images/04.jpg';
     }
-    public set ripped(r: boolean) {
-        this._ripped = r;
-    }
-    public get ripped(): boolean{
-        return this._ripped;
+    public set ripped(r: boolean) { this._ripped = r };
+    public get ripped(): boolean { return this._ripped };
+    public set price(p: number) {
+        if (p < Jeans.minPrice || p > Jeans.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
     }
 }
 class RegularPants extends Pants {
@@ -59,6 +63,8 @@ class RegularPants extends Pants {
 
     public static readonly minPockets: number = 2;
     public static readonly maxPockets: number = 8;
+    public static readonly minPrice: number = 129;
+    public static readonly maxPrice: number = 349;
 
     constructor() {
         super();
@@ -72,6 +78,11 @@ class RegularPants extends Pants {
     public get pockets(): number {
         return this._pockets;
     }
+    public set price(p: number) {
+        if (p < RegularPants.minPrice || p > RegularPants.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
+    }
 }
 class Shorts extends Pants {
     private _fabric: string;
@@ -79,6 +90,8 @@ class Shorts extends Pants {
     public static readonly minLength: number = 0.2;
     public static readonly maxLength: number = 0.5;
     public static readonly fabrics: string[] = ['Cotton', 'Polyester', 'Khaki', 'Rayon', 'Linen'];
+    public static readonly minPrice: number = 99;
+    public static readonly maxPrice: number = 199;
 
     constructor() {
         super();
@@ -91,6 +104,11 @@ class Shorts extends Pants {
     }
     public get fabric(): string {
         return this._fabric;
+    }
+    public set price(p: number) {
+        if (p < Shorts.minPrice || p > Shorts.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
     }
 }
 

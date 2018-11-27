@@ -3,12 +3,7 @@ abstract class Glasses extends Item{
 
     public static readonly GlassColors: string[] = ['Black', 'White', 'Red', 'Brown', 'Silver', 'Gold'];
 
-    public set price(a: number) {
-        if (a <= 0 || a > 2000) {
-            throw new Error(priceError);
-        } else { this.price = a };
-    }
-    public get price(): number { return this.price };
+
     public set frameColor(fc: string) {
         if (Glasses.GlassColors.findIndex(ele => { return ele === fc }) > 0) {
             this._frameColor = fc;
@@ -20,6 +15,8 @@ class SunGlasses extends Glasses {
     private _glassColor: string;
 
     public static readonly ShadeColors: string[] = ['Black', 'Yellow', 'Red', 'Blue', 'Rainbow'];
+    public static readonly minPrice: number = 99;
+    public static readonly maxPrice: number = 499;
 
     constructor() {
         super();
@@ -30,12 +27,19 @@ class SunGlasses extends Glasses {
             this._glassColor = gc;
         } else { throw new Error(colorError) };
     }
+    public set price(p: number) {
+        if (p < SunGlasses.minPrice || p > SunGlasses.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
+    }
 }
 class OpticGlasses extends Glasses{
     private _readDist: number;
 
     public static readonly minReadDistance: number = 0.2;
     public static readonly maxReadDistance: number = 3;
+    public static readonly minPrice: number = 299;
+    public static readonly maxPrice: number = 1299;
 
     constructor() {
         super();
@@ -45,5 +49,10 @@ class OpticGlasses extends Glasses{
         if (rd < OpticGlasses.minReadDistance || rd > OpticGlasses.maxReadDistance) {
             throw new Error(distanceError);
         } else { this._readDist = rd };
+    }
+    public set price(p: number) {
+        if (p < OpticGlasses.minPrice || p > OpticGlasses.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
     }
 }

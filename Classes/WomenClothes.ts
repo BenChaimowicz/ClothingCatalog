@@ -32,12 +32,19 @@ abstract class WomenClothes extends Item {
 class Skirt extends WomenClothes{
     private _isLongSkirt: boolean;
 
-    public set longSkirt(s: boolean) { this._isLongSkirt = s };
-    public get longSkirt(): boolean { return this._isLongSkirt };
+    public static readonly minPrice: number = 59;
+    public static readonly maxPrice: number = 199;
 
     constructor() {
         super();
         this.image = '../Assets/Images/07.jpg';
+    }
+    public set longSkirt(s: boolean) { this._isLongSkirt = s };
+    public get longSkirt(): boolean { return this._isLongSkirt };
+    public set price(p: number) {
+        if (p < Skirt.minPrice || p > Skirt.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
     }
 }
 class Dress extends WomenClothes{
@@ -46,6 +53,8 @@ class Dress extends WomenClothes{
 
     public static readonly minLength: number = 1;
     public static readonly maxLength: number = 1.8;
+    public static readonly minPrice: number = 199;
+    public static readonly maxPrice: number = 999;
 
     constructor() {
         super();
@@ -59,11 +68,18 @@ class Dress extends WomenClothes{
     public get dressLength(): number { return this._dressLength };
     public set bareback(b: boolean) { this._bareBack = b };
     public get bareback(): boolean { return this._bareBack };
+    public set price(p: number) {
+        if (p < Dress.minPrice || p > Dress.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
+    }
 }
 class NightDress extends Dress{
     private _fabric: string;
 
     public static readonly NDressFabrics: string[] = ['Silk', 'Cotton', 'Polyester', 'Wool', 'Linen'];
+    public static readonly minPrice: number = 499;
+    public static readonly maxPrice: number = 3499;
 
     constructor() {
         super();
@@ -76,4 +92,9 @@ class NightDress extends Dress{
         } else { throw new Error(fabricError) };
     }
     public get fabric(): string { return this._fabric };
+    public set price(p: number) {
+        if (p < NightDress.minPrice || p > NightDress.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
+    }
 }

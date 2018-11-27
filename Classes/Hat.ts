@@ -26,18 +26,28 @@ abstract class Hat extends Item {
 class Cap extends Hat {
     private _ad: boolean;
 
+    public static readonly minPrice: number = 29;
+    public static readonly maxPrice: number = 99;
+
     constructor() {
         super();
         this.image = '../Assets/Images/16.jpg';
     }
     public set ad(ad: boolean) { this._ad = ad };
     public get ad(): boolean { return this._ad };
+    public set price(p: number) {
+        if (p < Cap.minPrice || p > Cap.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
+    }
 }
 class TopHat extends Hat {
     private _height: number;
 
     public static readonly minHeight: number = 0.2;
     public static readonly maxHeight: number = 0.8;
+    public static readonly minPrice: number = 69;
+    public static readonly maxPrice: number = 199;
 
     constructor() {
         super();
@@ -49,4 +59,9 @@ class TopHat extends Hat {
         } else { this._height = h };
     }
     public get height(): number { return this._height };
+    public set price(p: number) {
+        if (p < TopHat.minPrice || p > TopHat.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
+    }
 }

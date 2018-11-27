@@ -27,12 +27,14 @@ abstract class Item {
     }
     public get price(): number { return this._price };
     public set image(img: string) { this._imageURL = img };
-    public displayDetails() {
-        
+    
+    public displayDetails(element:HTMLDivElement) {
+        element.innerHTML = this.brand + '<br>';
+        element.innerHTML += this.price + '<br>';
     }
 
-    public displayImage() {
-        
+    public displayImage(element:HTMLImageElement) {
+        element.src = this._imageURL;
     }
 
     public getPriceWithoutVAT(): number{

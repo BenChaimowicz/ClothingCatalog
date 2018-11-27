@@ -7,6 +7,8 @@ class Belt extends Item {
     public static readonly BeltColors: string[] = ['Black', 'Brown', 'Dark Green', 'Dark Blue', 'Gray'];
     public static readonly BuckleColors: string[] = ['Silver', 'Black', 'Gray', 'Gold'];
     public static readonly BuckleMaterials: string[] = ['Gold', 'Plastic', 'Copper', 'Iron', 'Steel', 'Silver', 'Iron'];
+    public static readonly minPrice: number = 99;
+    public static readonly maxPrice: number = 199;
 
     constructor() {
         super();
@@ -14,10 +16,10 @@ class Belt extends Item {
         this._beltDim = new Dimensions();
     }
 
-    public set price(a: number) {
-        if (a <= 0 || a > 300) {
-            throw new Error('Invalid price for this product!');
-        } else { this.price = a };
+    public set price(p: number) {
+        if (p < Belt.minPrice || p > Belt.maxPrice) {
+            throw new Error(priceError);
+        } else { this.price = p };
     }
     public get price(): number { return this.price };
     public set beltColor(bc: string) {

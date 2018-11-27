@@ -14,6 +14,7 @@ class Generator {
             manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
             Manufacturers.ManufacturerList.push(manufacturer);
         }
+        console.log(Manufacturers.ManufacturerList);
     }
 
     public getRandomItem(){
