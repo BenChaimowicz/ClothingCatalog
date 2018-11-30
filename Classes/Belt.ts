@@ -42,6 +42,18 @@ class Belt extends Item {
     public get buckleMaterial(): string { return this._buckleMat };
     public set beltDimensions(bdm: Dimensions) { this._beltDim = bdm };
     public get beltDimensions(): Dimensions { return this._beltDim };
+
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML = this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.beltColor + lB;
+        element.innerHTML += 'Buckle info: ' + this.buckleColor + ' ' + this.buckleMaterial + lB;
+        element.innerHTML += 'Dimensions: (L/W/H)' + this.beltDimensions.length + '/' + this.beltDimensions.width + '/' + this.beltDimensions.height + lB;
+        this.displayImage(imgBox);
+    }
 }
 class Dimensions {
     private _length: number;

@@ -30,7 +30,7 @@ abstract class Item {
     
     public displayDetails(element:HTMLDivElement) {
         element.innerHTML = this.brand + '<br>';
-        element.innerHTML += this.price + '<br>';
+        element.innerHTML += 'Price: ' + this.price + '<br>';
     }
 
     public displayImage(element:HTMLImageElement) {

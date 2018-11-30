@@ -14,4 +14,6 @@ const dateError: string = 'Date is invalid!';
 const heelError: string = 'No such type of heel!';
 const distanceError: string = 'Invalid distance!';
 
-let generator: Generator = new Generator();
+const lB: string = '<br>';
+ 
+const genButton: HTMLButtonElement = document.querySelector('#genBtn');

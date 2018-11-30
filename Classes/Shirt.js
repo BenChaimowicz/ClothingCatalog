@@ -52,8 +52,21 @@ class TShirt extends Shirt {
         }
         ;
     }
+    get text() { return this._text; }
+    ;
+    set price(p) {
+        if (p < TShirt.minPrice || p > TShirt.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 TShirt.TShirtText = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
+TShirt.minPrice = 29;
+TShirt.maxPrice = 149;
 class ButtonedShirt extends Shirt {
     constructor() {
         super();
@@ -68,10 +81,23 @@ class ButtonedShirt extends Shirt {
         }
         ;
     }
+    get buttons() { return this._buttons; }
+    ;
+    set price(p) {
+        if (p < ButtonedShirt.minPrice || p > ButtonedShirt.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 ButtonedShirt.buttonError = 'Invalid button number!';
 ButtonedShirt.minButtonCount = 4;
 ButtonedShirt.maxButtonCount = 7;
+ButtonedShirt.minPrice = 89;
+ButtonedShirt.maxPrice = 299;
 class WomenShirt extends Shirt {
     constructor() {
         super();
@@ -91,5 +117,18 @@ class WomenShirt extends Shirt {
         }
         ;
     }
+    get fabric() { return this._fabric; }
+    ;
+    set price(p) {
+        if (p < WomenShirt.minPrice || p > WomenShirt.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 WomenShirt.shirtFabrics = ['Cotton', 'Wool', 'Linen', 'Polyester'];
+WomenShirt.minPrice = 29;
+WomenShirt.maxPrice = 189;

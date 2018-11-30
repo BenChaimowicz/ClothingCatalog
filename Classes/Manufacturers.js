@@ -1,15 +1,22 @@
 "use strict";
 class Manufacturers {
     static modelsByManufacturer(manu) {
-        for (let i = 0; i < Manufacturers.ManufacturerList.length; i++) {
-            if (manu === Manufacturers.ManufacturerList[i].name) {
-                return Manufacturers.ManufacturerList[i].models;
-            }
+        console.log(manu);
+        let modelIndex = Manufacturers.ManufacturerList.findIndex(ele => { console.log(ele.name); return (ele.name === manu); });
+        if (modelIndex === -1) {
+            throw new Error('Not found in array!');
         }
+        else {
+            return Manufacturers.ManufacturerList[modelIndex].models;
+        }
+        ;
     }
 }
 Manufacturers.ManufacturerList = [];
 class Manufacturer {
+    constructor() {
+        this._models = [];
+    }
     set name(n) {
         if (n != null || n != '') {
             this._name = n;

@@ -52,13 +52,22 @@ class Jeans extends Pants {
         super();
         this.image = '../Assets/Images/04.jpg';
     }
-    set ripped(r) {
-        this._ripped = r;
-    }
-    get ripped() {
-        return this._ripped;
+    set ripped(r) { this._ripped = r; }
+    ;
+    get ripped() { return this._ripped; }
+    ;
+    set price(p) {
+        if (p < Jeans.minPrice || p > Jeans.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
     }
 }
+Jeans.minPrice = 149;
+Jeans.maxPrice = 349;
 class RegularPants extends Pants {
     constructor() {
         super();
@@ -76,9 +85,20 @@ class RegularPants extends Pants {
     get pockets() {
         return this._pockets;
     }
+    set price(p) {
+        if (p < RegularPants.minPrice || p > RegularPants.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 RegularPants.minPockets = 2;
 RegularPants.maxPockets = 8;
+RegularPants.minPrice = 129;
+RegularPants.maxPrice = 349;
 class Shorts extends Pants {
     constructor() {
         super();
@@ -96,7 +116,18 @@ class Shorts extends Pants {
     get fabric() {
         return this._fabric;
     }
+    set price(p) {
+        if (p < Shorts.minPrice || p > Shorts.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 Shorts.minLength = 0.2;
 Shorts.maxLength = 0.5;
 Shorts.fabrics = ['Cotton', 'Polyester', 'Khaki', 'Rayon', 'Linen'];
+Shorts.minPrice = 99;
+Shorts.maxPrice = 199;

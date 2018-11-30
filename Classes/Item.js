@@ -38,9 +38,12 @@ class Item {
     ;
     set image(img) { this._imageURL = img; }
     ;
-    displayDetails() {
+    displayDetails(element) {
+        element.innerHTML = this.brand + '<br>';
+        element.innerHTML += 'Price: ' + this.price + '<br>';
     }
-    displayImage() {
+    displayImage(element) {
+        element.src = this._imageURL;
     }
     getPriceWithoutVAT() {
         return (this.price / (1 + Item.VAT / 100));

@@ -40,7 +40,18 @@ class Cap extends Hat {
     ;
     get ad() { return this._ad; }
     ;
+    set price(p) {
+        if (p < Cap.minPrice || p > Cap.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
+Cap.minPrice = 29;
+Cap.maxPrice = 99;
 class TopHat extends Hat {
     constructor() {
         super();
@@ -57,6 +68,17 @@ class TopHat extends Hat {
     }
     get height() { return this._height; }
     ;
+    set price(p) {
+        if (p < TopHat.minPrice || p > TopHat.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 TopHat.minHeight = 0.2;
 TopHat.maxHeight = 0.8;
+TopHat.minPrice = 69;
+TopHat.maxPrice = 199;

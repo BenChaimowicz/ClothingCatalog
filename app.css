@@ -6,6 +6,10 @@ body {
     margin: 0;
     display: flex;
 }
+.itemImg{
+    height: 80px;
+    width: 80px;
+}
 #appContainer {
     height: inherit;
     width: 100%;
@@ -28,4 +32,8 @@ body {
     width:85%;
     height: inherit;
     background-color: #6b5b95;
+}
+#itemDisplay{
+    margin: auto;
+    background-color: #feb236;
 }

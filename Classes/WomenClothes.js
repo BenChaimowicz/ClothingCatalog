@@ -40,15 +40,26 @@ WomenClothes.maxPerimiter = 80;
 WomenClothes.minSize = 34;
 WomenClothes.maxSize = 48;
 class Skirt extends WomenClothes {
-    set longSkirt(s) { this._isLongSkirt = s; }
-    ;
-    get longSkirt() { return this._isLongSkirt; }
-    ;
     constructor() {
         super();
         this.image = '../Assets/Images/07.jpg';
     }
+    set longSkirt(s) { this._isLongSkirt = s; }
+    ;
+    get longSkirt() { return this._isLongSkirt; }
+    ;
+    set price(p) {
+        if (p < Skirt.minPrice || p > Skirt.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
+Skirt.minPrice = 59;
+Skirt.maxPrice = 199;
 class Dress extends WomenClothes {
     constructor() {
         super();
@@ -69,9 +80,20 @@ class Dress extends WomenClothes {
     ;
     get bareback() { return this._bareBack; }
     ;
+    set price(p) {
+        if (p < Dress.minPrice || p > Dress.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 Dress.minLength = 1;
 Dress.maxLength = 1.8;
+Dress.minPrice = 199;
+Dress.maxPrice = 999;
 class NightDress extends Dress {
     constructor() {
         super();
@@ -88,5 +110,16 @@ class NightDress extends Dress {
     }
     get fabric() { return this._fabric; }
     ;
+    set price(p) {
+        if (p < NightDress.minPrice || p > NightDress.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 NightDress.NDressFabrics = ['Silk', 'Cotton', 'Polyester', 'Wool', 'Linen'];
+NightDress.minPrice = 499;
+NightDress.maxPrice = 3499;

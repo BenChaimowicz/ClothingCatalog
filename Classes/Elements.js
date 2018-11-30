@@ -14,4 +14,5 @@ const materialError = 'This material is not valid.';
 const dateError = 'Date is invalid!';
 const heelError = 'No such type of heel!';
 const distanceError = 'Invalid distance!';
-let generator = new Generator();
+const lB = '<br>';
+const genButton = document.querySelector('#genBtn');

@@ -55,9 +55,20 @@ class Blazer extends Jacket {
     }
     get pockets() { return this._pockets; }
     ;
+    set price(p) {
+        if (p < Blazer.minPrice || p > Blazer.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 Blazer.minPockets = 0;
 Blazer.maxPockets = 6;
+Blazer.minPrice = 499;
+Blazer.maxPrice = 999;
 class Coat extends Jacket {
     constructor() {
         super();
@@ -68,4 +79,15 @@ class Coat extends Jacket {
     }
     get raincoat() { return this._raincoat; }
     ;
+    set price(p) {
+        if (p < Coat.minPrice || p > Coat.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
+Coat.minPrice = 299;
+Coat.maxPrice = 999;

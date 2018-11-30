@@ -13,6 +13,7 @@ class Generator {
             manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
             Manufacturers.ManufacturerList.push(manufacturer);
         }
+        console.log(Manufacturers.ManufacturerList);
     }
     getRandomItem() {
         let item = this.createItemType();
@@ -44,6 +45,7 @@ class Generator {
         // Glasses
         item instanceof SunGlasses ? this.createSunGlasses(item) : null;
         item instanceof OpticGlasses ? this.createOpticGlasses(item) : null;
+        return item;
     }
     randomFromArray(arr, del = false) {
         let rnd = (Math.floor(Math.random() * (arr.length)));
@@ -76,6 +78,7 @@ class Generator {
     }
     createItemType() {
         let num = this.getRandomNumber(1, 20);
+        console.log(num);
         switch (num) {
             case 1:
                 return new TShirt();

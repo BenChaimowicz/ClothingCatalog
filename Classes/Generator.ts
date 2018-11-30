@@ -17,7 +17,7 @@ class Generator {
         console.log(Manufacturers.ManufacturerList);
     }
 
-    public getRandomItem(){
+    public getRandomItem() : Item{
         let item: any = this.createItemType();
         // Shirts
         item instanceof TShirt ? this.createTShirt(item) : null;
@@ -47,6 +47,8 @@ class Generator {
         // Glasses
         item instanceof SunGlasses ? this.createSunGlasses(item) : null;
         item instanceof OpticGlasses ? this.createOpticGlasses(item) : null;
+
+        return item;
     }
 
     private randomFromArray(arr: any[], del: boolean = false): any {
@@ -71,6 +73,7 @@ class Generator {
 
     private createItemType() : any {
         let num: number = this.getRandomNumber(1, 20);
+        console.log(num);
         switch (num) {
             case 1:
                 return new TShirt();

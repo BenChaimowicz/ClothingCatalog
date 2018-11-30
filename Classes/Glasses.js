@@ -1,16 +1,5 @@
 "use strict";
 class Glasses extends Item {
-    set price(a) {
-        if (a <= 0 || a > 2000) {
-            throw new Error(priceError);
-        }
-        else {
-            this.price = a;
-        }
-        ;
-    }
-    get price() { return this.price; }
-    ;
     set frameColor(fc) {
         if (Glasses.GlassColors.findIndex(ele => { return ele === fc; }) > 0) {
             this._frameColor = fc;
@@ -38,8 +27,19 @@ class SunGlasses extends Glasses {
         }
         ;
     }
+    set price(p) {
+        if (p < SunGlasses.minPrice || p > SunGlasses.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 SunGlasses.ShadeColors = ['Black', 'Yellow', 'Red', 'Blue', 'Rainbow'];
+SunGlasses.minPrice = 99;
+SunGlasses.maxPrice = 499;
 class OpticGlasses extends Glasses {
     constructor() {
         super();
@@ -54,6 +54,17 @@ class OpticGlasses extends Glasses {
         }
         ;
     }
+    set price(p) {
+        if (p < OpticGlasses.minPrice || p > OpticGlasses.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 OpticGlasses.minReadDistance = 0.2;
 OpticGlasses.maxReadDistance = 3;
+OpticGlasses.minPrice = 299;
+OpticGlasses.maxPrice = 1299;

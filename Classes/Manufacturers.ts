@@ -1,18 +1,17 @@
-abstract class Manufacturers {
+class Manufacturers {
     public static ManufacturerList: Manufacturer[] = [];
 
-    public static modelsByManufacturer(manu: string): string[]{
-        for (let i = 0; i < Manufacturers.ManufacturerList.length; i++){
-            if (manu === Manufacturers.ManufacturerList[i].name) {
-                return Manufacturers.ManufacturerList[i].models;
-            }
-        }
+    public static modelsByManufacturer(manu: string): string[] {
+        console.log(manu);
+        let modelIndex: number = Manufacturers.ManufacturerList.findIndex(ele => { console.log(ele.name); return (ele.name === manu) });
+        if (modelIndex === -1) { throw new Error('Not found in array!') }
+        else { return Manufacturers.ManufacturerList[modelIndex].models };
     }
 }
 
 class Manufacturer {
     private _name: string;
-    private _models: string[];
+    private _models: string[] = [];
 
     public set name(n: string) {
         if (n != null || n != '') {

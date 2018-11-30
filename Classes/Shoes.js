@@ -58,8 +58,19 @@ class ElegantShoes extends Shoes {
     }
     get material() { return this._material; }
     ;
+    set price(p) {
+        if (p < ElegantShoes.minPrice || p > ElegantShoes.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 ElegantShoes.eShoesMaterials = ['Leather', 'Cotton', 'Linen', 'Wood', 'Suede'];
+ElegantShoes.minPrice = 249;
+ElegantShoes.maxPrice = 999;
 class SportShoes extends Shoes {
     constructor() {
         super();
@@ -80,7 +91,18 @@ class SportShoes extends Shoes {
     }
     get manufactureDate() { return this._manufactureDate; }
     ;
+    set price(p) {
+        if (p < SportShoes.minPrice || p > SportShoes.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
+SportShoes.minPrice = 199;
+SportShoes.maxPrice = 699;
 class ComfyShoes extends Shoes {
     constructor() {
         super();
@@ -94,7 +116,18 @@ class ComfyShoes extends Shoes {
     ;
     get orthopedic() { return this._orthopedic; }
     ;
+    set price(p) {
+        if (p < ComfyShoes.minPrice || p > ComfyShoes.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
+ComfyShoes.minPrice = 199;
+ComfyShoes.maxPrice = 399;
 class Heels extends Shoes {
     constructor() {
         super();
@@ -109,5 +142,16 @@ class Heels extends Shoes {
         }
         ;
     }
+    set price(p) {
+        if (p < Heels.minPrice || p > Heels.maxPrice) {
+            throw new Error(priceError);
+        }
+        else {
+            this.price = p;
+        }
+        ;
+    }
 }
 Heels.HeelTypes = ['Low', 'Medium', 'High'];
+Heels.minPrice = 149;
+Heels.maxPrice = 1299;

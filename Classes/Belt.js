@@ -5,12 +5,12 @@ class Belt extends Item {
         this.image = '../Assets/Images/18.jpg';
         this._beltDim = new Dimensions();
     }
-    set price(a) {
-        if (a <= 0 || a > 300) {
-            throw new Error('Invalid price for this product!');
+    set price(p) {
+        if (p < Belt.minPrice || p > Belt.maxPrice) {
+            throw new Error(priceError);
         }
         else {
-            this.price = a;
+            this.price = p;
         }
         ;
     }
@@ -53,10 +53,23 @@ class Belt extends Item {
     ;
     get beltDimensions() { return this._beltDim; }
     ;
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML = this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.beltColor + lB;
+        element.innerHTML += 'Buckle info: ' + this.buckleColor + ' ' + this.buckleMaterial + lB;
+        element.innerHTML += 'Dimensions: (L/W/H)' + this.beltDimensions.length + '/' + this.beltDimensions.width + '/' + this.beltDimensions.height + lB;
+        this.displayImage(imgBox);
+    }
 }
 Belt.BeltColors = ['Black', 'Brown', 'Dark Green', 'Dark Blue', 'Gray'];
 Belt.BuckleColors = ['Silver', 'Black', 'Gray', 'Gold'];
 Belt.BuckleMaterials = ['Gold', 'Plastic', 'Copper', 'Iron', 'Steel', 'Silver', 'Iron'];
+Belt.minPrice = 99;
+Belt.maxPrice = 199;
 class Dimensions {
     set length(l) {
         if (l > Dimensions.maxLength || l < Dimensions.minLength) {
