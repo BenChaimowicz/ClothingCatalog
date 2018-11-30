@@ -2,7 +2,7 @@ class Manufacturers {
     public static ManufacturerList: Manufacturer[] = [];
 
     public static modelsByManufacturer(manu: string): string[] {
-        console.log(manu);
+        console.log(manu);        
         let modelIndex: number = Manufacturers.ManufacturerList.findIndex(ele => { console.log(ele.name); return (ele.name === manu) });
         if (modelIndex === -1) { throw new Error('Not found in array!') }
         else { return Manufacturers.ManufacturerList[modelIndex].models };
