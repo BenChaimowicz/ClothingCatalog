@@ -123,7 +123,7 @@ class Generator {
         }
     }
     shirtStandards(shirt) {
-        shirt.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        shirt.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         shirt.model = this.randomFromArray(Manufacturers.modelsByManufacturer(shirt.manufacturer));
         shirt.size = this.getRandomNumber(Shirt.minShirtSize, Shirt.maxShirtSize);
         shirt.color = this.randomFromArray(Shirt.shirtColors);
@@ -142,7 +142,7 @@ class Generator {
         wshirt.fabric = this.randomFromArray(WomenShirt.shirtFabrics);
     }
     pantsStandards(pants) {
-        pants.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        pants.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         pants.model = this.randomFromArray(Manufacturers.modelsByManufacturer(pants.manufacturer));
         pants.size = this.getRandomNumber(Pants.minSize, Pants.maxSize);
         pants.color = this.randomFromArray(Pants.pantsColors);
@@ -168,7 +168,7 @@ class Generator {
         shorts.fabric = this.randomFromArray(Shorts.fabrics);
     }
     womenClothesStandards(c) {
-        c.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        c.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         c.model = this.randomFromArray(Manufacturers.modelsByManufacturer(c.manufacturer));
         c.color = this.randomFromArray(WomenClothes.wColors);
         c.size = this.getRandomNumber(WomenClothes.minSize, WomenClothes.maxSize);
@@ -187,7 +187,7 @@ class Generator {
         nDress.fabric = this.randomFromArray(NightDress.NDressFabrics);
     }
     jacketStandards(jacket) {
-        jacket.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        jacket.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         jacket.model = this.randomFromArray(Manufacturers.modelsByManufacturer(jacket.manufacturer));
         jacket.color = this.randomFromArray(Jacket.JacketColors);
         jacket.size = this.getRandomNumber(Jacket.minSize, Jacket.maxSize);
@@ -202,7 +202,7 @@ class Generator {
         coat.raincoat = this.getRandomNumber(0, 1);
     }
     shoeStandards(shoe) {
-        shoe.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        shoe.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         shoe.model = this.randomFromArray(Manufacturers.modelsByManufacturer(shoe.manufacturer));
         shoe.color = this.randomFromArray(Shoes.ShoeColors);
         shoe.size = this.getRandomNumber(Shoes.minSize, Shoes.maxSize);
@@ -231,7 +231,7 @@ class Generator {
         heels.heel = this.randomFromArray(Heels.HeelTypes);
     }
     hatStandards(hat) {
-        hat.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        hat.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         hat.model = this.randomFromArray(Manufacturers.modelsByManufacturer(hat.manufacturer));
         hat.color = this.randomFromArray(Hat.HatColors);
         hat.setDiameterAndSize = this.getRandomNumber(Hat.minDiameter, Hat.maxDiameter);
@@ -245,7 +245,7 @@ class Generator {
         tophat.height = this.getRandomNumber(TopHat.minHeight, TopHat.maxHeight, true);
     }
     createBelt(belt) {
-        belt.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        belt.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         belt.model = this.randomFromArray(Manufacturers.modelsByManufacturer(belt.manufacturer));
         belt.beltColor = this.randomFromArray(Belt.BeltColors);
         belt.buckleColor = this.randomFromArray(Belt.BuckleColors);
@@ -255,7 +255,7 @@ class Generator {
         belt.beltDimensions.width = this.getRandomNumber(Dimensions.minWidth, Dimensions.maxWidth, true);
     }
     GlassesStandards(glasses) {
-        glasses.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList);
+        glasses.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
         glasses.model = this.randomFromArray(Manufacturers.modelsByManufacturer(glasses.manufacturer));
         glasses.frameColor = this.randomFromArray(Glasses.GlassColors);
     }
