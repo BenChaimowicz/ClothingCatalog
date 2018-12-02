@@ -67,6 +67,19 @@ class ElegantShoes extends Shoes {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn + lB;
+        element.innerHTML += 'Laces: ' + this.laces + lB;
+        element.innerHTML += 'Material: ' + this.material + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 ElegantShoes.eShoesMaterials = ['Leather', 'Cotton', 'Linen', 'Wood', 'Suede'];
 ElegantShoes.minPrice = 249;
@@ -100,6 +113,19 @@ class SportShoes extends Shoes {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn + lB;
+        element.innerHTML += 'Laces: ' + this.laces + lB;
+        element.innerHTML += 'Manufacture Date: ' + this.manufactureDate + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 SportShoes.minPrice = 199;
 SportShoes.maxPrice = 699;
@@ -124,6 +150,19 @@ class ComfyShoes extends Shoes {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn + lB;
+        element.innerHTML += 'Laces: ' + this.laces + lB;
+        element.innerHTML += 'Orthopedic: ' + this.orthopedic + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 ComfyShoes.minPrice = 199;
@@ -150,6 +189,18 @@ class Heels extends Shoes {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn + lB;
+        element.innerHTML += 'Heel Height: ' + this.heel + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 Heels.HeelTypes = ['Low', 'Medium', 'High'];

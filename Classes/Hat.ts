@@ -40,6 +40,18 @@ class Cap extends Hat {
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
+        element.innerHTML += 'Printed Advertisement: ' + this.ad + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 class TopHat extends Hat {
     private _height: number;
@@ -63,5 +75,17 @@ class TopHat extends Hat {
         if (p < TopHat.minPrice || p > TopHat.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
+        element.innerHTML += 'Height: ' + this.height + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }

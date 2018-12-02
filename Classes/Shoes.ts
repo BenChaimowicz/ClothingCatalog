@@ -53,6 +53,19 @@ class ElegantShoes extends Shoes {
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn  + lB;
+        element.innerHTML += 'Laces: ' + this.laces + lB;
+        element.innerHTML += 'Material: ' + this.material + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 
 class SportShoes extends Shoes{
@@ -79,6 +92,19 @@ class SportShoes extends Shoes{
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn  + lB;
+        element.innerHTML += 'Laces: ' + this.laces + lB;
+        element.innerHTML += 'Manufacture Date: ' + this.manufactureDate + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 class ComfyShoes extends Shoes {
     private _laces: boolean;
@@ -99,6 +125,19 @@ class ComfyShoes extends Shoes {
         if (p < ComfyShoes.minPrice || p > ComfyShoes.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn  + lB;
+        element.innerHTML += 'Laces: ' + this.laces + lB;
+        element.innerHTML += 'Orthopedic: ' + this.orthopedic + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 class Heels extends Shoes {
@@ -121,5 +160,17 @@ class Heels extends Shoes {
         if (p < Heels.minPrice || p > Heels.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Made in: ' + this.madeIn  + lB;
+        element.innerHTML += 'Heel Height: ' + this.heel + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }

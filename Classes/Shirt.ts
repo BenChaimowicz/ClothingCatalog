@@ -54,6 +54,18 @@ class TShirt extends Shirt {
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
+        element.innerHTML += 'Printed Text: ' + this.text + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 class ButtonedShirt extends Shirt {
     private _buttons: number;
@@ -78,6 +90,18 @@ class ButtonedShirt extends Shirt {
         if (p < ButtonedShirt.minPrice || p > ButtonedShirt.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
+        element.innerHTML += 'Buttons: ' + this.buttons + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 class WomenShirt extends Shirt {
@@ -107,6 +131,18 @@ class WomenShirt extends Shirt {
         if (p < WomenShirt.minPrice || p > WomenShirt.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
+        element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 

@@ -57,12 +57,13 @@ class Belt extends Item {
         let imgBox = document.createElement('img');
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
-        element.innerHTML = this.brand + lB;
+        element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.beltColor + lB;
         element.innerHTML += 'Buckle info: ' + this.buckleColor + ' ' + this.buckleMaterial + lB;
-        element.innerHTML += 'Dimensions: (L/W/H)' + this.beltDimensions.length + '/' + this.beltDimensions.width + '/' + this.beltDimensions.height + lB;
+        element.innerHTML += 'Dimensions in meters: (L/W/H)' + this.beltDimensions.length + '/' + this.beltDimensions.width + '/' + this.beltDimensions.height + lB;
         this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 Belt.BeltColors = ['Black', 'Brown', 'Dark Green', 'Dark Blue', 'Gray'];

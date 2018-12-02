@@ -51,6 +51,18 @@ class Blazer extends Jacket{
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
+        element.innerHTML += 'Pockets: ' + this.pockets + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 class Coat extends Jacket{
     private _raincoat: boolean;
@@ -70,5 +82,17 @@ class Coat extends Jacket{
         if (p < Coat.minPrice || p > Coat.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
+        element.innerHTML += 'Rainproof: ' + this.raincoat + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }

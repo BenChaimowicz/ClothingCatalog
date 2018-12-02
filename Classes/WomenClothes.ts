@@ -46,6 +46,18 @@ class Skirt extends WomenClothes{
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
+        element.innerHTML += 'Long Skirt: ' + this.longSkirt + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 class Dress extends WomenClothes{
     private _dressLength: number;
@@ -73,6 +85,19 @@ class Dress extends WomenClothes{
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
+        element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
+        element.innerHTML += 'Bare Back: ' + this.bareback + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 class NightDress extends Dress{
     private _fabric: string;
@@ -96,5 +121,19 @@ class NightDress extends Dress{
         if (p < NightDress.minPrice || p > NightDress.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
+        element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
+        element.innerHTML += 'Bare Back: ' + this.bareback + lB;
+        element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }

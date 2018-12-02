@@ -27,6 +27,8 @@ class SunGlasses extends Glasses {
         }
         ;
     }
+    get glassColor() { return this._glassColor; }
+    ;
     set price(p) {
         if (p < SunGlasses.minPrice || p > SunGlasses.maxPrice) {
             throw new Error(priceError);
@@ -35,6 +37,17 @@ class SunGlasses extends Glasses {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Frame Color: ' + this.frameColor + lB;
+        element.innerHTML += 'Shade Color: ' + this.glassColor + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 SunGlasses.ShadeColors = ['Black', 'Yellow', 'Red', 'Blue', 'Rainbow'];
@@ -54,6 +67,8 @@ class OpticGlasses extends Glasses {
         }
         ;
     }
+    get readDistance() { return (this._readDist); }
+    ;
     set price(p) {
         if (p < OpticGlasses.minPrice || p > OpticGlasses.maxPrice) {
             throw new Error(priceError);
@@ -62,6 +77,17 @@ class OpticGlasses extends Glasses {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Frame Color: ' + this.frameColor + lB;
+        element.innerHTML += 'Recommended Reading Distance: ' + this.readDistance + ' Meters' + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 OpticGlasses.minReadDistance = 0.2;

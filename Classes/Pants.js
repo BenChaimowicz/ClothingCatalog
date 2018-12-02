@@ -65,6 +65,18 @@ class Jeans extends Pants {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
+        element.innerHTML += 'Ripped: ' + this.ripped + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 Jeans.minPrice = 149;
 Jeans.maxPrice = 349;
@@ -93,6 +105,18 @@ class RegularPants extends Pants {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
+        element.innerHTML += 'Pockets: ' + this.pockets + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 RegularPants.minPockets = 2;
@@ -124,6 +148,18 @@ class Shorts extends Pants {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
+        element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 Shorts.minLength = 0.2;

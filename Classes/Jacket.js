@@ -64,6 +64,18 @@ class Blazer extends Jacket {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
+        element.innerHTML += 'Pockets: ' + this.pockets + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 Blazer.minPockets = 0;
 Blazer.maxPockets = 6;
@@ -87,6 +99,18 @@ class Coat extends Jacket {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
+        element.innerHTML += 'Rainproof: ' + this.raincoat + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 Coat.minPrice = 299;

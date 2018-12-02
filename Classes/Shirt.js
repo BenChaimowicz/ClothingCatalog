@@ -63,6 +63,18 @@ class TShirt extends Shirt {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
+        element.innerHTML += 'Printed Text: ' + this.text + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 TShirt.TShirtText = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
 TShirt.minPrice = 29;
@@ -91,6 +103,18 @@ class ButtonedShirt extends Shirt {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
+        element.innerHTML += 'Buttons: ' + this.buttons + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 ButtonedShirt.buttonError = 'Invalid button number!';
@@ -127,6 +151,18 @@ class WomenShirt extends Shirt {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
+        element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 WomenShirt.shirtFabrics = ['Cotton', 'Wool', 'Linen', 'Polyester'];

@@ -49,6 +49,18 @@ class Cap extends Hat {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
+        element.innerHTML += 'Printed Advertisement: ' + this.ad + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 Cap.minPrice = 29;
 Cap.maxPrice = 99;
@@ -76,6 +88,18 @@ class TopHat extends Hat {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
+        element.innerHTML += 'Height: ' + this.height + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 TopHat.minHeight = 0.2;

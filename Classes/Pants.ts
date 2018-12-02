@@ -39,6 +39,7 @@ abstract class Pants extends Item {
     public get size(): number{
         return this._size;
     }
+    
 }
 class Jeans extends Pants {
     private _ripped: boolean;
@@ -56,6 +57,18 @@ class Jeans extends Pants {
         if (p < Jeans.minPrice || p > Jeans.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
+        element.innerHTML += 'Ripped: ' + this.ripped + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 class RegularPants extends Pants {
@@ -83,6 +96,18 @@ class RegularPants extends Pants {
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
+        element.innerHTML += 'Pockets: ' + this.pockets + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 class Shorts extends Pants {
     private _fabric: string;
@@ -109,6 +134,18 @@ class Shorts extends Pants {
         if (p < Shorts.minPrice || p > Shorts.maxPrice) {
             throw new Error(priceError);
         } else { this.price = p };
+    }
+    public displayDetails(element: HTMLDivElement) {
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
+        element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 

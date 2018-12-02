@@ -57,6 +57,18 @@ class Skirt extends WomenClothes {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
+        element.innerHTML += 'Long Skirt: ' + this.longSkirt + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 Skirt.minPrice = 59;
 Skirt.maxPrice = 199;
@@ -89,6 +101,19 @@ class Dress extends WomenClothes {
         }
         ;
     }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
+        element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
+        element.innerHTML += 'Bare Back: ' + this.bareback + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
+    }
 }
 Dress.minLength = 1;
 Dress.maxLength = 1.8;
@@ -118,6 +143,20 @@ class NightDress extends Dress {
             this.price = p;
         }
         ;
+    }
+    displayDetails(element) {
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
+        element.innerHTML += this.brand + lB;
+        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Color: ' + this.color + lB;
+        element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
+        element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
+        element.innerHTML += 'Bare Back: ' + this.bareback + lB;
+        element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        this.displayImage(imgBox);
+        element.innerHTML += '</hr>' + lB;
     }
 }
 NightDress.NDressFabrics = ['Silk', 'Cotton', 'Polyester', 'Wool', 'Linen'];
