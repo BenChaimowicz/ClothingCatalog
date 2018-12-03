@@ -61,7 +61,7 @@ class Blazer extends Jacket{
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 class Coat extends Jacket{
@@ -94,6 +94,6 @@ class Coat extends Jacket{
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }

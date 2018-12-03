@@ -74,7 +74,7 @@ class Blazer extends Jacket {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Blazer.minPockets = 0;
@@ -110,7 +110,7 @@ class Coat extends Jacket {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Coat.minPrice = 299;

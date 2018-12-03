@@ -57,7 +57,7 @@ class Skirt extends WomenClothes{
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 class Dress extends WomenClothes{
@@ -98,7 +98,7 @@ class Dress extends WomenClothes{
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 class NightDress extends Dress{
@@ -137,6 +137,6 @@ class NightDress extends Dress{
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }

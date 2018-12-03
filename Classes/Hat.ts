@@ -50,7 +50,7 @@ class Cap extends Hat {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 class TopHat extends Hat {
@@ -86,6 +86,6 @@ class TopHat extends Hat {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }

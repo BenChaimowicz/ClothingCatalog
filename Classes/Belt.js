@@ -61,7 +61,7 @@ class Belt extends Item {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Belt.BeltColors = ['Black', 'Brown', 'Dark Green', 'Dark Blue', 'Gray'];

@@ -70,7 +70,7 @@ class Jeans extends Pants {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Jeans.minPrice = 149;
@@ -111,7 +111,7 @@ class RegularPants extends Pants {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 RegularPants.minPockets = 2;
@@ -165,7 +165,7 @@ class Shorts extends Pants {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Shorts.minLength = 0.2;

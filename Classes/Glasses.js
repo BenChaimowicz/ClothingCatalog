@@ -47,7 +47,7 @@ class SunGlasses extends Glasses {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 SunGlasses.ShadeColors = ['Black', 'Yellow', 'Red', 'Blue', 'Rainbow'];
@@ -87,7 +87,7 @@ class OpticGlasses extends Glasses {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 OpticGlasses.minReadDistance = 0.2;

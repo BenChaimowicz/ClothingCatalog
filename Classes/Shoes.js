@@ -78,7 +78,7 @@ class ElegantShoes extends Shoes {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 ElegantShoes.eShoesMaterials = ['Leather', 'Cotton', 'Linen', 'Wood', 'Suede'];
@@ -124,7 +124,7 @@ class SportShoes extends Shoes {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 SportShoes.minPrice = 199;
@@ -162,7 +162,7 @@ class ComfyShoes extends Shoes {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 ComfyShoes.minPrice = 199;
@@ -200,7 +200,7 @@ class Heels extends Shoes {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Heels.HeelTypes = ['Low', 'Medium', 'High'];

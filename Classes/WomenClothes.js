@@ -67,7 +67,7 @@ class Skirt extends WomenClothes {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Skirt.minPrice = 59;
@@ -112,7 +112,7 @@ class Dress extends WomenClothes {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 Dress.minLength = 1;
@@ -156,7 +156,7 @@ class NightDress extends Dress {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 NightDress.NDressFabrics = ['Silk', 'Cotton', 'Polyester', 'Wool', 'Linen'];

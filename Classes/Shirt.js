@@ -74,7 +74,7 @@ class TShirt extends Shirt {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 TShirt.TShirtText = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
@@ -115,7 +115,7 @@ class ButtonedShirt extends Shirt {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 ButtonedShirt.buttonError = 'Invalid button number!';
@@ -158,7 +158,7 @@ class WomenShirt extends Shirt {
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
         this.displayImage(imgBox);
-        element.innerHTML += '</hr>' + lB;
+        element.innerHTML += '<hr>' + lB;
     }
 }
 WomenShirt.shirtFabrics = ['Cotton', 'Wool', 'Linen', 'Polyester'];
