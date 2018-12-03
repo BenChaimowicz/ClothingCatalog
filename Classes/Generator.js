@@ -13,10 +13,9 @@ class Generator {
             manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
             Manufacturers.ManufacturerList.push(manufacturer);
         }
-        console.log(Manufacturers.ManufacturerList);
     }
-    getRandomItem() {
-        let item = this.createItemType();
+    getRandomItem(index = 0) {
+        let item = index != 0 ? this.createItemType(index) : this.createItemType();
         // Shirts
         item instanceof TShirt ? this.createTShirt(item) : null;
         item instanceof ButtonedShirt ? this.createBShirt(item) : null;
@@ -76,8 +75,8 @@ class Generator {
             return parseFloat((Math.random() * (max - min) + min).toFixed(2));
         }
     }
-    createItemType() {
-        let num = this.getRandomNumber(1, 20);
+    createItemType(index = 0) {
+        let num = index != 0 ? index : this.getRandomNumber(1, 20);
         console.log(num);
         switch (num) {
             case 1:
@@ -146,7 +145,9 @@ class Generator {
         pants.model = this.randomFromArray(Manufacturers.modelsByManufacturer(pants.manufacturer));
         pants.size = this.getRandomNumber(Pants.minSize, Pants.maxSize);
         pants.color = this.randomFromArray(Pants.pantsColors);
-        pants.pantLength = this.getRandomNumber(Pants.minLength, Pants.maxLength, true);
+        if (pants instanceof Shorts === false) {
+            pants.pantLength = this.getRandomNumber(Pants.minLength, Pants.maxLength, true);
+        }
     }
     createJeans(jeans) {
         this.pantsStandards(jeans);
@@ -180,7 +181,7 @@ class Generator {
     }
     createDress(dress) {
         this.womenClothesStandards(dress);
-        dress.dressLength = this.getRandomNumber(Dress.minLength, Dress.maxLength);
+        dress.dressLength = this.getRandomNumber(Dress.minLength, Dress.maxLength, true);
         dress.bareback = this.getRandomNumber(0, 1);
     }
     createNDress(nDress) {

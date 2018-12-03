@@ -24,7 +24,7 @@ body {
     border-right: 1px solid black;
     background-color: #feb236;
 }
-#sideBar > button {
+#sideBar > * {
     margin: auto;
 }
 #mainContainer {

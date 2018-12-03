@@ -16,4 +16,6 @@ const heelError = 'No such type of heel!';
 const distanceError = 'Invalid distance!';
 const lB = '<br>';
 const genButton = document.querySelector('#genBtn');
+const genRndSpecButton = document.querySelector('#genSpecificRndBtn');
+const indexInput = document.querySelector('#itemIndexInput');
 const itemDisplayer = document.querySelector('#itemDisplay');

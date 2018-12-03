@@ -10,7 +10,7 @@ abstract class Jacket extends Item {
     public static readonly maxSize: number = 52;
 
     public set color(c: string) {
-        if (Jacket.JacketColors.findIndex(ele => { return ele === c }) > 0) {
+        if (Jacket.JacketColors.findIndex(ele => { return ele === c }) > -1) {
             this._color = c;
         } else { throw new Error(colorError) };
     }
@@ -38,7 +38,7 @@ class Blazer extends Jacket{
 
     constructor() {
         super();
-        this.image = '../Assets/Images/14.jpg';
+        this.image = './Assets/Images/14.jpg';
     }
     public set pockets(p: number) {
         if (p < Blazer.minPockets || p > Blazer.maxPockets) {
@@ -52,14 +52,14 @@ class Blazer extends Jacket{
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
         element.innerHTML += 'Pockets: ' + this.pockets + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -72,7 +72,7 @@ class Coat extends Jacket{
 
     constructor() {
         super();
-        this.image = '../Assets/Images/15.jpg';
+        this.image = './Assets/Images/15.jpg';
     }
     public set raincoat(r: boolean) {
         this._raincoat = r;
@@ -84,14 +84,15 @@ class Coat extends Jacket{
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
         element.innerHTML += 'Rainproof: ' + this.raincoat + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

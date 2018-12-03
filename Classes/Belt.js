@@ -2,7 +2,7 @@
 class Belt extends Item {
     constructor() {
         super();
-        this.image = '../Assets/Images/18.jpg';
+        this.image = './Assets/Images/18.jpg';
         this._beltDim = new Dimensions();
     }
     set price(p) {
@@ -14,10 +14,8 @@ class Belt extends Item {
         }
         ;
     }
-    get price() { return this.price; }
-    ;
     set beltColor(bc) {
-        if (Belt.BeltColors.findIndex(ele => { return ele === bc; }) > 0) {
+        if (Belt.BeltColors.findIndex(ele => { return ele === bc; }) > -1) {
             this._beltColor = bc;
         }
         else {
@@ -28,7 +26,7 @@ class Belt extends Item {
     get beltColor() { return this._beltColor; }
     ;
     set buckleColor(bc) {
-        if (Belt.BuckleColors.findIndex(ele => { return ele === bc; }) > 0) {
+        if (Belt.BuckleColors.findIndex(ele => { return ele === bc; }) > -1) {
             this._buckleColor = bc;
         }
         else {
@@ -39,7 +37,7 @@ class Belt extends Item {
     get buckleColor() { return this._buckleColor; }
     ;
     set buckleMaterial(bm) {
-        if (Belt.BuckleMaterials.findIndex(ele => { return ele === bm; }) > 0) {
+        if (Belt.BuckleMaterials.findIndex(ele => { return ele === bm; }) > -1) {
             this._buckleMat = bm;
         }
         else {
@@ -54,14 +52,14 @@ class Belt extends Item {
     get beltDimensions() { return this._beltDim; }
     ;
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.beltColor + lB;
         element.innerHTML += 'Buckle info: ' + this.buckleColor + ' ' + this.buckleMaterial + lB;
         element.innerHTML += 'Dimensions in meters: (L/W/H)' + this.beltDimensions.length + '/' + this.beltDimensions.width + '/' + this.beltDimensions.height + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

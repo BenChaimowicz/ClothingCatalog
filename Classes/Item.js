@@ -25,26 +25,13 @@ class Item {
     }
     get model() { return this._model; }
     ;
-    set price(a) {
-        if (a > 0) {
-            this._price = a;
-        }
-        else {
-            throw new Error('Price cannot be 0 or lower!');
-        }
-        ;
-    }
     get price() { return this._price; }
     ;
     set image(img) { this._imageURL = img; }
     ;
-    displayDetails(element) {
-        element.innerHTML = this.brand + '<br>';
-        element.innerHTML += 'Price: ' + this.price + '<br>';
-    }
-    displayImage(element) {
-        element.src = this._imageURL;
-    }
+    displayDetails(element) { }
+    ;
+    displayImage(element) { element.src = this._imageURL; }
     getPriceWithoutVAT() {
         return (this.price / (1 + Item.VAT / 100));
     }

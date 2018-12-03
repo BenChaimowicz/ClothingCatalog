@@ -1,19 +1,16 @@
 "use strict";
 class Shirt extends Item {
     set color(c) {
-        let match = false;
-        for (let i = 0; i < Shirt.shirtColors.length; i++) {
-            if (c === Shirt.shirtColors[i]) {
-                match = true;
-                this._color = c;
-                break;
-            }
-            ;
+        if (Shirt.shirtColors.findIndex(ele => ele === c) > -1) {
+            this._color = c;
         }
-        if (match == false) {
+        else {
             throw new Error(colorError);
         }
+        ;
     }
+    get color() { return this._color; }
+    ;
     set sleeveLength(sl) {
         if (sl > Shirt.maxSleeveLength || sl < Shirt.minSleeveLength) {
             throw new Error(lengthError);
@@ -23,6 +20,8 @@ class Shirt extends Item {
         }
         ;
     }
+    get sleeveLength() { return this._sleeveLength; }
+    ;
     set size(s) {
         if (s > Shirt.maxShirtSize || s < Shirt.minShirtSize) {
             throw new Error(sizeError);
@@ -32,6 +31,8 @@ class Shirt extends Item {
         }
         ;
     }
+    get size() { return this._size; }
+    ;
 }
 Shirt.shirtColors = ['Red', 'Blue', 'Black', 'White', 'Yellow', 'Green', 'Pink', 'Purple'];
 Shirt.maxShirtSize = 44;
@@ -41,7 +42,7 @@ Shirt.minSleeveLength = 0;
 class TShirt extends Shirt {
     constructor() {
         super();
-        this.image = '../Assets/Images/01.jpg';
+        this.image = './Assets/Images/01.jpg';
     }
     set text(txt) {
         if (txt != '' || txt != undefined) {
@@ -64,14 +65,14 @@ class TShirt extends Shirt {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Printed Text: ' + this.text + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -82,7 +83,7 @@ TShirt.maxPrice = 149;
 class ButtonedShirt extends Shirt {
     constructor() {
         super();
-        this.image = '../Assets/Images/02.jpg';
+        this.image = './Assets/Images/02.jpg';
     }
     set buttons(b) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {
@@ -105,14 +106,14 @@ class ButtonedShirt extends Shirt {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Buttons: ' + this.buttons + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -125,18 +126,13 @@ ButtonedShirt.maxPrice = 299;
 class WomenShirt extends Shirt {
     constructor() {
         super();
-        this.image = '../Assets/Images/03.jpg';
+        this.image = './Assets/Images/03.jpg';
     }
     set fabric(f) {
-        let match = false;
-        for (let i = 0; i < WomenShirt.shirtFabrics.length; i++) {
-            if (f === WomenShirt.shirtFabrics[i]) {
-                match = true;
-                this._fabric = f;
-                break;
-            }
+        if (WomenShirt.shirtFabrics.findIndex(ele => ele === f) > -1) {
+            this._fabric = f;
         }
-        if (match == false) {
+        else {
             throw new Error(fabricError);
         }
         ;
@@ -153,14 +149,14 @@ class WomenShirt extends Shirt {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

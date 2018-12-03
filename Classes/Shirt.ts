@@ -10,26 +10,23 @@ abstract class Shirt extends Item {
     public static readonly minSleeveLength: number = 0;
 
     public set color(c: string) {
-        let match: boolean = false;
-        for (let i = 0; i < Shirt.shirtColors.length; i++){
-            if (c === Shirt.shirtColors[i]) {
-                match = true;
-                this._color = c;
-                break;
-            };
-        }
-        if (match == false) { throw new Error(colorError);}
+        if (Shirt.shirtColors.findIndex(ele => ele === c) > -1) {
+            this._color = c;
+        } else { throw new Error(colorError) };
     }
+    public get color(): string { return this._color };
     public set sleeveLength(sl: number) {
         if (sl > Shirt.maxSleeveLength || sl < Shirt.minSleeveLength) {
             throw new Error(lengthError);
         } else { this._sleeveLength = sl };
     }
+    public get sleeveLength(): number { return this._sleeveLength };
     public set size(s: number) {
         if (s > Shirt.maxShirtSize || s < Shirt.minShirtSize) {
             throw new Error(sizeError);
         } else { this._size = s };
     }
+    public get size(): number { return this._size };
 }
 
 class TShirt extends Shirt {
@@ -41,7 +38,7 @@ class TShirt extends Shirt {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/01.jpg';
+        this.image = './Assets/Images/01.jpg';
     }
     public set text(txt: string) {
         if (txt != '' || txt != undefined) {
@@ -55,14 +52,15 @@ class TShirt extends Shirt {
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Printed Text: ' + this.text + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -78,7 +76,7 @@ class ButtonedShirt extends Shirt {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/02.jpg';
+        this.image = './Assets/Images/02.jpg';
     }
     public set buttons(b: number) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {
@@ -92,14 +90,14 @@ class ButtonedShirt extends Shirt {
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Buttons: ' + this.buttons + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -113,18 +111,12 @@ class WomenShirt extends Shirt {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/03.jpg';
+        this.image = './Assets/Images/03.jpg';
     }
     public set fabric(f: string) {
-        let match: boolean = false;
-        for (let i = 0; i < WomenShirt.shirtFabrics.length; i++){
-            if (f === WomenShirt.shirtFabrics[i]) {
-                match = true;
-                this._fabric = f;
-                break;
-            }
-        }
-        if (match == false) { throw new Error(fabricError); };
+        if (WomenShirt.shirtFabrics.findIndex(ele => ele === f) > -1) {
+            this._fabric = f;
+        } else { throw new Error(fabricError) };
     }
     public get fabric(): string { return this._fabric };
     public set price(p: number) {
@@ -133,14 +125,15 @@ class WomenShirt extends Shirt {
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

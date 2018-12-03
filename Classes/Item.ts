@@ -20,22 +20,12 @@ abstract class Item {
         } else { this._model = m };
     }
     public get model(): string { return this._model };
-    public set price(a: number) {
-        if (a > 0) {
-            this._price = a;
-        } else { throw new Error('Price cannot be 0 or lower!') };
-    }
     public get price(): number { return this._price };
     public set image(img: string) { this._imageURL = img };
     
-    public displayDetails(element:HTMLDivElement) {
-        element.innerHTML = this.brand + '<br>';
-        element.innerHTML += 'Price: ' + this.price + '<br>';
-    }
+    public displayDetails(element: HTMLDivElement) {};
 
-    public displayImage(element:HTMLImageElement) {
-        element.src = this._imageURL;
-    }
+    public displayImage(element:HTMLImageElement) {element.src = this._imageURL}
 
     public getPriceWithoutVAT(): number{
         return (this.price / (1 + Item.VAT / 100))

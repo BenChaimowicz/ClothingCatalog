@@ -12,7 +12,7 @@ class Belt extends Item {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/18.jpg';
+        this.image = './Assets/Images/18.jpg';
         this._beltDim = new Dimensions();
     }
 
@@ -21,21 +21,20 @@ class Belt extends Item {
             throw new Error(priceError);
         } else { this.price = p };
     }
-    public get price(): number { return this.price };
     public set beltColor(bc: string) {
-        if (Belt.BeltColors.findIndex(ele => { return ele === bc }) > 0) {
+        if (Belt.BeltColors.findIndex(ele => { return ele === bc }) >-1) {
             this._beltColor = bc;
         } else { throw new Error(colorError) };
     }
     public get beltColor(): string { return this._beltColor };
     public set buckleColor(bc: string) {
-        if (Belt.BuckleColors.findIndex(ele => { return ele === bc }) > 0) {
+        if (Belt.BuckleColors.findIndex(ele => { return ele === bc }) > -1) {
             this._buckleColor = bc;
         } else { throw new Error(colorError) };
     }
     public get buckleColor(): string { return this._buckleColor };
     public set buckleMaterial(bm: string) {
-        if (Belt.BuckleMaterials.findIndex(ele => { return ele === bm }) > 0) {
+        if (Belt.BuckleMaterials.findIndex(ele => { return ele === bm }) >-1) {
             this._buckleMat = bm;
         } else { throw new Error(materialError) };
     }
@@ -44,14 +43,15 @@ class Belt extends Item {
     public get beltDimensions(): Dimensions { return this._beltDim };
 
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.beltColor + lB;
         element.innerHTML += 'Buckle info: ' + this.buckleColor + ' ' + this.buckleMaterial + lB;
         element.innerHTML += 'Dimensions in meters: (L/W/H)' + this.beltDimensions.length + '/' + this.beltDimensions.width + '/' + this.beltDimensions.height + lB;
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

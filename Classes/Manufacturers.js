@@ -1,8 +1,7 @@
 "use strict";
 class Manufacturers {
     static modelsByManufacturer(manu) {
-        console.log(manu);
-        let modelIndex = Manufacturers.ManufacturerList.findIndex(ele => { console.log(ele.name); return (ele.name === manu); });
+        let modelIndex = Manufacturers.ManufacturerList.findIndex(ele => ele.name === manu);
         if (modelIndex === -1) {
             throw new Error('Not found in array!');
         }

@@ -1,7 +1,7 @@
-const possibleManufacturerNames:string[] = ['Melvin Fine', 'Rolo', 'Gastro', 'A2M', 'Barf Lauren', 'Lance', 'Dongy Middlefinger'];
-const possibleModelNames: string[] = ['Amore', 'Le Hate', 'Poopon', 'Bleh', 'Tre', 'Coup', 'Manly', 'Femme', 'Pedot', 'Bourbon', 'Canale','Piss','Urtne','Haggis'];
+const possibleManufacturerNames: string[] = ['Melvin Fine', 'Rolo', 'Gastro', 'A2M', 'Barf Lauren', 'Lance', 'Dongy Middlefinger'];
+const possibleModelNames: string[] = ['Amore', 'Le Hate', 'Poopon', 'Bleh', 'Tre', 'Coup', 'Manly', 'Femme', 'Pedot', 'Bourbon', 'Canale', 'Piss', 'Urtne', 'Haggis'];
 
-class Generator { 
+class Generator {
     constructor() {
         this.createManufacturers();
     }
@@ -14,11 +14,11 @@ class Generator {
             manufacturer.addModel(this.randomFromArray(possibleModelNames, true));
             Manufacturers.ManufacturerList.push(manufacturer);
         }
-        console.log(Manufacturers.ManufacturerList);
     }
 
-    public getRandomItem() : Item{
-        let item: any = this.createItemType();
+    public getRandomItem(index: number = 0): Item {
+        let item: any = index != 0 ? this.createItemType(index) : this.createItemType();
+
         // Shirts
         item instanceof TShirt ? this.createTShirt(item) : null;
         item instanceof ButtonedShirt ? this.createBShirt(item) : null;
@@ -68,11 +68,12 @@ class Generator {
         if (!fraction) {
             let rnd: any = (Math.floor(Math.random() * (max - min + 1) + min));
             return rnd;
-        } else {return parseFloat((Math.random() * (max - min) + min).toFixed(2)) }
+        } else { return parseFloat((Math.random() * (max - min) + min).toFixed(2)) }
     }
 
-    private createItemType() : any {
-        let num: number = this.getRandomNumber(1, 20);
+    private createItemType(index: number = 0): any {
+
+        let num: number = index != 0 ? index : this.getRandomNumber(1, 20)
         console.log(num);
         switch (num) {
             case 1:
@@ -123,7 +124,7 @@ class Generator {
         shirt.model = this.randomFromArray(Manufacturers.modelsByManufacturer(shirt.manufacturer));
         shirt.size = this.getRandomNumber(Shirt.minShirtSize, Shirt.maxShirtSize);
         shirt.color = this.randomFromArray(Shirt.shirtColors);
-        shirt.sleeveLength = this.getRandomNumber(Shirt.minSleeveLength, Shirt.maxSleeveLength,true);
+        shirt.sleeveLength = this.getRandomNumber(Shirt.minSleeveLength, Shirt.maxSleeveLength, true);
     }
     private createTShirt(tshirt: TShirt) {
         this.shirtStandards(tshirt);
@@ -142,7 +143,9 @@ class Generator {
         pants.model = this.randomFromArray(Manufacturers.modelsByManufacturer(pants.manufacturer));
         pants.size = this.getRandomNumber(Pants.minSize, Pants.maxSize);
         pants.color = this.randomFromArray(Pants.pantsColors);
-        pants.pantLength = this.getRandomNumber(Pants.minLength, Pants.maxLength,true);
+        if (pants instanceof Shorts === false) {
+            pants.pantLength = this.getRandomNumber(Pants.minLength, Pants.maxLength, true);
+        }
     }
     private createJeans(jeans: Jeans) {
         this.pantsStandards(jeans);
@@ -156,7 +159,7 @@ class Generator {
     }
     private createShorts(shorts: Shorts) {
         this.pantsStandards(shorts);
-        shorts.pantLength = this.getRandomNumber(Shorts.minLength, Shorts.maxLength,true);
+        shorts.pantLength = this.getRandomNumber(Shorts.minLength, Shorts.maxLength, true);
         shorts.fabric = this.randomFromArray(Shorts.fabrics);
     }
     private womenClothesStandards(c: WomenClothes) {
@@ -172,7 +175,7 @@ class Generator {
     }
     private createDress(dress: Dress) {
         this.womenClothesStandards(dress);
-        dress.dressLength = this.getRandomNumber(Dress.minLength, Dress.maxLength);
+        dress.dressLength = this.getRandomNumber(Dress.minLength, Dress.maxLength, true);
         dress.bareback = this.getRandomNumber(0, 1);
     }
     private createNDress(nDress: NightDress) {
@@ -183,7 +186,7 @@ class Generator {
         jacket.model = this.randomFromArray(Manufacturers.modelsByManufacturer(jacket.manufacturer));
         jacket.color = this.randomFromArray(Jacket.JacketColors);
         jacket.size = this.getRandomNumber(Jacket.minSize, Jacket.maxSize);
-        jacket.thickness = this.getRandomNumber(Jacket.minThickness,Jacket.maxThickness,true);
+        jacket.thickness = this.getRandomNumber(Jacket.minThickness, Jacket.maxThickness, true);
     }
     private createBlazer(blazer: Blazer) {
         this.jacketStandards(blazer);
@@ -209,11 +212,11 @@ class Generator {
         this.shoeStandards(shoes);
         shoes.laces = this.getRandomNumber(0, 1);
         shoes.manufactureDate = randomDate(new Date(2012, 1, 1), new Date());
-        
-        function randomDate(start:Date, end:Date):Date {
+
+        function randomDate(start: Date, end: Date): Date {
             return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
-          }
-          
+        }
+
     }
     private createCShoes(shoes: ComfyShoes) {
         this.shoeStandards(shoes);
@@ -236,7 +239,7 @@ class Generator {
     }
     private createTHat(tophat: TopHat) {
         this.hatStandards(tophat);
-        tophat.height = this.getRandomNumber(TopHat.minHeight, TopHat.maxHeight,true);
+        tophat.height = this.getRandomNumber(TopHat.minHeight, TopHat.maxHeight, true);
     }
     private createBelt(belt: Belt) {
         belt.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;
@@ -244,9 +247,9 @@ class Generator {
         belt.beltColor = this.randomFromArray(Belt.BeltColors);
         belt.buckleColor = this.randomFromArray(Belt.BuckleColors);
         belt.buckleMaterial = this.randomFromArray(Belt.BuckleMaterials);
-        belt.beltDimensions.height = this.getRandomNumber(Dimensions.minHeight, Dimensions.maxHeight,true);
-        belt.beltDimensions.length = this.getRandomNumber(Dimensions.minLength, Dimensions.maxLength,true);
-        belt.beltDimensions.width = this.getRandomNumber(Dimensions.minWidth, Dimensions.maxWidth,true);
+        belt.beltDimensions.height = this.getRandomNumber(Dimensions.minHeight, Dimensions.maxHeight, true);
+        belt.beltDimensions.length = this.getRandomNumber(Dimensions.minLength, Dimensions.maxLength, true);
+        belt.beltDimensions.width = this.getRandomNumber(Dimensions.minWidth, Dimensions.maxWidth, true);
     }
     private GlassesStandards(glasses: Glasses) {
         glasses.manufacturer = this.randomFromArray(Manufacturers.ManufacturerList).name;

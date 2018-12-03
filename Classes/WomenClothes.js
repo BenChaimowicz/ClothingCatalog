@@ -1,7 +1,7 @@
 "use strict";
 class WomenClothes extends Item {
     set color(c) {
-        if (WomenClothes.wColors.findIndex(ind => { return ind === c; }) > 0) {
+        if (WomenClothes.wColors.findIndex(ind => { return ind === c; }) > -1) {
             this._color = c;
         }
         else {
@@ -42,7 +42,7 @@ WomenClothes.maxSize = 48;
 class Skirt extends WomenClothes {
     constructor() {
         super();
-        this.image = '../Assets/Images/07.jpg';
+        this.image = './Assets/Images/07.jpg';
     }
     set longSkirt(s) { this._isLongSkirt = s; }
     ;
@@ -58,14 +58,14 @@ class Skirt extends WomenClothes {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
         element.innerHTML += 'Long Skirt: ' + this.longSkirt + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -75,7 +75,7 @@ Skirt.maxPrice = 199;
 class Dress extends WomenClothes {
     constructor() {
         super();
-        this.image = '../Assets/Images/08.jpg';
+        this.image = './Assets/Images/08.jpg';
     }
     set dressLength(l) {
         if (l < Dress.minLength || l > Dress.maxLength) {
@@ -102,15 +102,15 @@ class Dress extends WomenClothes {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
         element.innerHTML += 'Bare Back: ' + this.bareback + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -122,10 +122,10 @@ Dress.maxPrice = 999;
 class NightDress extends Dress {
     constructor() {
         super();
-        this.image = '../Assets/Images/09.jpg';
+        this.image = './Assets/Images/09.jpg';
     }
     set fabric(f) {
-        if (NightDress.NDressFabrics.findIndex(fa => { return fa === f; }) > 0) {
+        if (NightDress.NDressFabrics.findIndex(fa => { return fa === f; }) > -1) {
             this._fabric = f;
         }
         else {
@@ -145,9 +145,6 @@ class NightDress extends Dress {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
@@ -155,6 +152,9 @@ class NightDress extends Dress {
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
         element.innerHTML += 'Bare Back: ' + this.bareback + lB;
         element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

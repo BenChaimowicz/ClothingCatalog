@@ -4,21 +4,15 @@ abstract class Pants extends Item {
     private _size: number;
 
     public static readonly pantsColors: string[] = ['Black', 'Gray', 'Brown', 'Blue', 'Dark Blue', 'Green', 'Khaki'];
-    public static readonly minLength: number = 0.3;
+    public static readonly minLength: number = 0.2;
     public static readonly maxLength: number = 1.3;
     public static readonly minSize: number = 36;
     public static readonly maxSize: number = 48;
 
     public set color(c: string) {
-        let match: boolean = false;
-        for (let i = 0; i < Pants.pantsColors.length; i++){
-            if (c === Pants.pantsColors[i]) {
-                match = true;
-                this.color = c;
-                break;
-            }
-        }
-        if (match === false) { throw new Error(colorError); };
+        if (Pants.pantsColors.findIndex(ele => ele === c) > -1) {
+            this._color = c;
+        } else { throw new Error(colorError) };
     }
     public get color(): string{
         return this._color;
@@ -49,7 +43,7 @@ class Jeans extends Pants {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/04.jpg';
+        this.image = './Assets/Images/04.jpg';
     }
     public set ripped(r: boolean) { this._ripped = r };
     public get ripped(): boolean { return this._ripped };
@@ -59,14 +53,15 @@ class Jeans extends Pants {
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
         element.innerHTML += 'Ripped: ' + this.ripped + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -81,7 +76,7 @@ class RegularPants extends Pants {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/05.jpg';
+        this.image = './Assets/Images/05.jpg';
     }
     public set pockets(po: number) {
         if (po < RegularPants.minPockets || po > RegularPants.maxPockets) {
@@ -97,20 +92,22 @@ class RegularPants extends Pants {
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
         element.innerHTML += 'Pockets: ' + this.pockets + lB;
+        let imgBox: HTMLImageElement = document.createElement('img')as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
 }
 class Shorts extends Pants {
     private _fabric: string;
+    private _shortPantLength: number;
 
     public static readonly minLength: number = 0.2;
     public static readonly maxLength: number = 0.5;
@@ -120,8 +117,14 @@ class Shorts extends Pants {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/06.jpg';
+        this.image = './Assets/Images/06.jpg';
     }
+    public set pantLength(pl: number) {
+        if (pl < Shorts.minLength || Shorts.maxLength) {
+            throw new Error(lengthError);
+        } else { this._shortPantLength = pl };
+    }
+    public get pantLength(): number { return this._shortPantLength };
     public set fabric(f: string) {
         if (Shorts.fabrics.findIndex(function(elem) { return elem === f }) >= 0){
             this._fabric = f;
@@ -136,14 +139,14 @@ class Shorts extends Pants {
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
         element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

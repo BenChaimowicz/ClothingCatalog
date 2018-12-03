@@ -1,7 +1,7 @@
 "use strict";
 class Shoes extends Item {
     set color(c) {
-        if (Shoes.ShoeColors.findIndex(ele => { return ele === c; }) > 0) {
+        if (Shoes.ShoeColors.findIndex(ele => { return ele === c; }) > -1) {
             this._color = c;
         }
         else {
@@ -12,7 +12,7 @@ class Shoes extends Item {
     get color() { return this._color; }
     ;
     set madeIn(mi) {
-        if (Shoes.Countries.findIndex(ele => { return ele === mi; }) > 0) {
+        if (Shoes.Countries.findIndex(ele => { return ele === mi; }) > -1) {
             this._madeIn = mi;
         }
         else {
@@ -41,14 +41,14 @@ Shoes.maxSize = 46;
 class ElegantShoes extends Shoes {
     constructor() {
         super();
-        this.image = '../Assets/Images/10.jpg';
+        this.image = './Assets/Images/10.jpg';
     }
     set laces(l) { this._laces = l; }
     ;
     get laces() { return this._laces; }
     ;
     set material(m) {
-        if (ElegantShoes.eShoesMaterials.findIndex(ele => { return ele === m; }) > 0) {
+        if (ElegantShoes.eShoesMaterials.findIndex(ele => { return ele === m; }) > -1) {
             this._material = m;
         }
         else {
@@ -68,15 +68,15 @@ class ElegantShoes extends Shoes {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn + lB;
         element.innerHTML += 'Laces: ' + this.laces + lB;
         element.innerHTML += 'Material: ' + this.material + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -87,7 +87,7 @@ ElegantShoes.maxPrice = 999;
 class SportShoes extends Shoes {
     constructor() {
         super();
-        this.image = '../Assets/Images/11.jpg';
+        this.image = './Assets/Images/11.jpg';
     }
     set laces(l) { this._laces = l; }
     ;
@@ -114,15 +114,15 @@ class SportShoes extends Shoes {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn + lB;
         element.innerHTML += 'Laces: ' + this.laces + lB;
         element.innerHTML += 'Manufacture Date: ' + this.manufactureDate + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -132,7 +132,7 @@ SportShoes.maxPrice = 699;
 class ComfyShoes extends Shoes {
     constructor() {
         super();
-        this.image = '../Assets/Images/12.jpg';
+        this.image = './Assets/Images/12.jpg';
     }
     set laces(l) { this._laces = l; }
     ;
@@ -152,15 +152,15 @@ class ComfyShoes extends Shoes {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn + lB;
         element.innerHTML += 'Laces: ' + this.laces + lB;
         element.innerHTML += 'Orthopedic: ' + this.orthopedic + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -170,10 +170,10 @@ ComfyShoes.maxPrice = 399;
 class Heels extends Shoes {
     constructor() {
         super();
-        this.image = '../Assets/Images/13.jpg';
+        this.image = './Assets/Images/13.jpg';
     }
     set heel(h) {
-        if (Heels.HeelTypes.findIndex(ele => { return ele === h; }) > 0) {
+        if (Heels.HeelTypes.findIndex(ele => { return ele === h; }) > -1) {
             this._heelType = h;
         }
         else {
@@ -191,14 +191,14 @@ class Heels extends Shoes {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn + lB;
         element.innerHTML += 'Heel Height: ' + this.heel + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

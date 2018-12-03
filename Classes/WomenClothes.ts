@@ -10,7 +10,7 @@ abstract class WomenClothes extends Item {
     public static readonly maxSize: number = 48;
 
     public set color(c: string) {
-        if (WomenClothes.wColors.findIndex(ind => { return ind === c }) > 0) {
+        if (WomenClothes.wColors.findIndex(ind => { return ind === c }) > -1) {
             this._color = c;
         } else { throw new Error(colorError); };
     }
@@ -37,7 +37,7 @@ class Skirt extends WomenClothes{
 
     constructor() {
         super();
-        this.image = '../Assets/Images/07.jpg';
+        this.image = './Assets/Images/07.jpg';
     }
     public set longSkirt(s: boolean) { this._isLongSkirt = s };
     public get longSkirt(): boolean { return this._isLongSkirt };
@@ -47,14 +47,15 @@ class Skirt extends WomenClothes{
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
         element.innerHTML += 'Long Skirt: ' + this.longSkirt + lB;
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -70,7 +71,7 @@ class Dress extends WomenClothes{
 
     constructor() {
         super();
-        this.image = '../Assets/Images/08.jpg';
+        this.image = './Assets/Images/08.jpg';
     }
     public set dressLength(l: number) {
         if (l < Dress.minLength || l > Dress.maxLength) {
@@ -86,15 +87,16 @@ class Dress extends WomenClothes{
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+ 
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
         element.innerHTML += 'Bare Back: ' + this.bareback + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -108,11 +110,11 @@ class NightDress extends Dress{
 
     constructor() {
         super();
-        this.image = '../Assets/Images/09.jpg';
+        this.image = './Assets/Images/09.jpg';
     }
 
     public set fabric(f: string) {
-        if (NightDress.NDressFabrics.findIndex(fa => { return fa === f }) > 0) {
+        if (NightDress.NDressFabrics.findIndex(fa => { return fa === f }) > -1) {
             this._fabric = f;
         } else { throw new Error(fabricError) };
     }
@@ -123,9 +125,7 @@ class NightDress extends Dress{
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
+
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
@@ -133,6 +133,9 @@ class NightDress extends Dress{
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
         element.innerHTML += 'Bare Back: ' + this.bareback + lB;
         element.innerHTML += 'Fabric: ' + this.fabric + lB;
+        let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

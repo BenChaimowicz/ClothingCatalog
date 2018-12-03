@@ -1,7 +1,7 @@
 "use strict";
 class Hat extends Item {
     set color(c) {
-        if (Hat.HatColors.findIndex(ele => { return ele === c; }) > 0) {
+        if (Hat.HatColors.findIndex(ele => { return ele === c; }) > -1) {
             this._color = c;
         }
         else {
@@ -34,7 +34,7 @@ Hat.maxSize = Hat.maxDiameter;
 class Cap extends Hat {
     constructor() {
         super();
-        this.image = '../Assets/Images/16.jpg';
+        this.image = './Assets/Images/16.jpg';
     }
     set ad(ad) { this._ad = ad; }
     ;
@@ -50,14 +50,14 @@ class Cap extends Hat {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
         element.innerHTML += 'Printed Advertisement: ' + this.ad + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -67,7 +67,7 @@ Cap.maxPrice = 99;
 class TopHat extends Hat {
     constructor() {
         super();
-        this.image = '../Assets/Images/17.jpg';
+        this.image = './Assets/Images/17.jpg';
     }
     set height(h) {
         if (h < TopHat.minHeight || h > TopHat.maxHeight) {
@@ -90,14 +90,14 @@ class TopHat extends Hat {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
         element.innerHTML += 'Height: ' + this.height + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

@@ -5,7 +5,7 @@ abstract class Glasses extends Item{
 
 
     public set frameColor(fc: string) {
-        if (Glasses.GlassColors.findIndex(ele => { return ele === fc }) > 0) {
+        if (Glasses.GlassColors.findIndex(ele => { return ele === fc }) > -1) {
             this._frameColor = fc;
         } else { throw new Error(colorError) };
     }
@@ -20,10 +20,10 @@ class SunGlasses extends Glasses {
 
     constructor() {
         super();
-        this.image = '../Assets/Images/19.jpg';
+        this.image = './Assets/Images/19.jpg';
     }
     public set glassColor(gc: string) {
-        if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc }) > 0) {
+        if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc }) > -1) {
             this._glassColor = gc;
         } else { throw new Error(colorError) };
     }
@@ -34,13 +34,13 @@ class SunGlasses extends Glasses {
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Frame Color: ' + this.frameColor + lB;
         element.innerHTML += 'Shade Color: ' + this.glassColor + lB;
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -55,7 +55,7 @@ class OpticGlasses extends Glasses{
 
     constructor() {
         super();
-        this.image = '../Assets/Images/20.jpg';
+        this.image = './Assets/Images/20.jpg';
     }
     public set readDistance(rd: number) {
         if (rd < OpticGlasses.minReadDistance || rd > OpticGlasses.maxReadDistance) {
@@ -69,13 +69,13 @@ class OpticGlasses extends Glasses{
         } else { this.price = p };
     }
     public displayDetails(element: HTMLDivElement) {
-        let imgBox: HTMLImageElement = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Frame Color: ' + this.frameColor + lB;
         element.innerHTML += 'Recommended Reading Distance: ' + this.readDistance + ' Meters' + lB;
+        let imgBox: HTMLImageElement = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

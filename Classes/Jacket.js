@@ -1,7 +1,7 @@
 "use strict";
 class Jacket extends Item {
     set color(c) {
-        if (Jacket.JacketColors.findIndex(ele => { return ele === c; }) > 0) {
+        if (Jacket.JacketColors.findIndex(ele => { return ele === c; }) > -1) {
             this._color = c;
         }
         else {
@@ -42,7 +42,7 @@ Jacket.maxSize = 52;
 class Blazer extends Jacket {
     constructor() {
         super();
-        this.image = '../Assets/Images/14.jpg';
+        this.image = './Assets/Images/14.jpg';
     }
     set pockets(p) {
         if (p < Blazer.minPockets || p > Blazer.maxPockets) {
@@ -65,14 +65,14 @@ class Blazer extends Jacket {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
         element.innerHTML += 'Pockets: ' + this.pockets + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -84,7 +84,7 @@ Blazer.maxPrice = 999;
 class Coat extends Jacket {
     constructor() {
         super();
-        this.image = '../Assets/Images/15.jpg';
+        this.image = './Assets/Images/15.jpg';
     }
     set raincoat(r) {
         this._raincoat = r;
@@ -101,14 +101,14 @@ class Coat extends Jacket {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
         element.innerHTML += 'Rainproof: ' + this.raincoat + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }

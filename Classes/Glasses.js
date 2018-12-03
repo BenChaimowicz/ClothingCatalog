@@ -1,7 +1,7 @@
 "use strict";
 class Glasses extends Item {
     set frameColor(fc) {
-        if (Glasses.GlassColors.findIndex(ele => { return ele === fc; }) > 0) {
+        if (Glasses.GlassColors.findIndex(ele => { return ele === fc; }) > -1) {
             this._frameColor = fc;
         }
         else {
@@ -16,10 +16,10 @@ Glasses.GlassColors = ['Black', 'White', 'Red', 'Brown', 'Silver', 'Gold'];
 class SunGlasses extends Glasses {
     constructor() {
         super();
-        this.image = '../Assets/Images/19.jpg';
+        this.image = './Assets/Images/19.jpg';
     }
     set glassColor(gc) {
-        if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc; }) > 0) {
+        if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc; }) > -1) {
             this._glassColor = gc;
         }
         else {
@@ -39,13 +39,13 @@ class SunGlasses extends Glasses {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Frame Color: ' + this.frameColor + lB;
         element.innerHTML += 'Shade Color: ' + this.glassColor + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
@@ -56,7 +56,7 @@ SunGlasses.maxPrice = 499;
 class OpticGlasses extends Glasses {
     constructor() {
         super();
-        this.image = '../Assets/Images/20.jpg';
+        this.image = './Assets/Images/20.jpg';
     }
     set readDistance(rd) {
         if (rd < OpticGlasses.minReadDistance || rd > OpticGlasses.maxReadDistance) {
@@ -79,13 +79,13 @@ class OpticGlasses extends Glasses {
         ;
     }
     displayDetails(element) {
-        let imgBox = document.createElement('img');
-        imgBox.className = 'itemImg';
-        element.appendChild(imgBox);
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
         element.innerHTML += 'Frame Color: ' + this.frameColor + lB;
         element.innerHTML += 'Recommended Reading Distance: ' + this.readDistance + ' Meters' + lB;
+        let imgBox = document.createElement('img');
+        imgBox.className = 'itemImg';
+        element.appendChild(imgBox);
         this.displayImage(imgBox);
         element.innerHTML += '</hr>' + lB;
     }
