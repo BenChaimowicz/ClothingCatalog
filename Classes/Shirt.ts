@@ -49,8 +49,9 @@ class TShirt extends Shirt {
     public set price(p: number) {
         if (p < TShirt.minPrice || p > TShirt.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
@@ -87,8 +88,9 @@ class ButtonedShirt extends Shirt {
     public set price(p: number) {
         if (p < ButtonedShirt.minPrice || p > ButtonedShirt.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -122,8 +124,9 @@ class WomenShirt extends Shirt {
     public set price(p: number) {
         if (p < WomenShirt.minPrice || p > WomenShirt.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;

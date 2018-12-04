@@ -49,8 +49,9 @@ class Blazer extends Jacket{
     public set price(p: number) {
         if (p < Blazer.minPrice || p > Blazer.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -81,8 +82,9 @@ class Coat extends Jacket{
     public set price(p: number) {
         if (p < Coat.minPrice || p > Coat.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;

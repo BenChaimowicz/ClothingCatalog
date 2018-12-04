@@ -63,10 +63,12 @@ class ElegantShoes extends Shoes {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -109,10 +111,12 @@ class SportShoes extends Shoes {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -147,10 +151,12 @@ class ComfyShoes extends Shoes {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -186,10 +192,12 @@ class Heels extends Shoes {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;

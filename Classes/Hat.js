@@ -45,10 +45,12 @@ class Cap extends Hat {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -85,10 +87,12 @@ class TopHat extends Hat {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;

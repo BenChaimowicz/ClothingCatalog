@@ -19,8 +19,9 @@ class Belt extends Item {
     public set price(p: number) {
         if (p < Belt.minPrice || p > Belt.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public set beltColor(bc: string) {
         if (Belt.BeltColors.findIndex(ele => { return ele === bc }) >-1) {
             this._beltColor = bc;

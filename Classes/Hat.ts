@@ -38,8 +38,9 @@ class Cap extends Hat {
     public set price(p: number) {
         if (p < Cap.minPrice || p > Cap.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -74,8 +75,9 @@ class TopHat extends Hat {
     public set price(p: number) {
         if (p < TopHat.minPrice || p > TopHat.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;

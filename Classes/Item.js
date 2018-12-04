@@ -25,9 +25,12 @@ class Item {
     }
     get model() { return this._model; }
     ;
-    get price() { return this._price; }
-    ;
     set image(img) { this._imageURL = img; }
+    ;
+    set price(p) {
+        this._price = p;
+    }
+    get price() { return this._price; }
     ;
     displayDetails(element) { }
     ;

@@ -53,10 +53,12 @@ class Skirt extends WomenClothes {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -97,10 +99,12 @@ class Dress extends WomenClothes {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -140,10 +144,12 @@ class NightDress extends Dress {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;

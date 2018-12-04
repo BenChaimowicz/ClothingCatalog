@@ -60,10 +60,12 @@ class TShirt extends Shirt {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -101,10 +103,12 @@ class ButtonedShirt extends Shirt {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -144,10 +148,12 @@ class WomenShirt extends Shirt {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;

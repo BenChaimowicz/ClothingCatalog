@@ -31,8 +31,9 @@ class SunGlasses extends Glasses {
     public set price(p: number) {
         if (p < SunGlasses.minPrice || p > SunGlasses.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
@@ -68,6 +69,7 @@ class OpticGlasses extends Glasses{
             throw new Error(priceError);
         } else { this.price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;

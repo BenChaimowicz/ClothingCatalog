@@ -14,26 +14,31 @@ body {
     height: inherit;
     width: 100%;
     display: flex;
-    background-color: aliceblue;
+    background-color: rgb(255, 255, 255);
 }
 #sideBar {
+    position: fixed;
     display: flex;
     flex-direction: column;
     width:15%;
     height: inherit;
     border-right: 1px solid black;
-    background-color: #feb236;
+    background-color: #9cf5f0;
 }
 #sideBar > * {
+    margin: auto;
+}
+#sideBar > div > * {
+    display: flex;
     margin: auto;
 }
 #mainContainer {
     display: flex;
     width:85%;
     height: inherit;
-    background-color: #6b5b95;
+    background-color: #ffffff;
 }
 #itemDisplay{
     margin: auto;
-    background-color: #feb236;
+    background-color: #ffffff;
 }

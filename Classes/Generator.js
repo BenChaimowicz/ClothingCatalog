@@ -131,10 +131,12 @@ class Generator {
     createTShirt(tshirt) {
         this.shirtStandards(tshirt);
         tshirt.text = this.randomFromArray(TShirt.TShirtText);
+        tshirt.price = this.getRandomNumber(TShirt.minPrice, TShirt.maxPrice);
     }
     createBShirt(bshirt) {
         this.shirtStandards(bshirt);
         bshirt.buttons = this.getRandomNumber(ButtonedShirt.minButtonCount, ButtonedShirt.maxButtonCount);
+        bshirt.price = this.getRandomNumber(ButtonedShirt.minPrice, ButtonedShirt.maxPrice);
     }
     createWShirt(wshirt) {
         this.shirtStandards(wshirt);

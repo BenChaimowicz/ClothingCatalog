@@ -10,10 +10,12 @@ class Belt extends Item {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }
+    get price() { return this._price; }
+    ;
     set beltColor(bc) {
         if (Belt.BeltColors.findIndex(ele => { return ele === bc; }) > -1) {
             this._beltColor = bc;

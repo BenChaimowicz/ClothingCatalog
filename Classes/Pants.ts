@@ -50,8 +50,9 @@ class Jeans extends Pants {
     public set price(p: number) {
         if (p < Jeans.minPrice || p > Jeans.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
@@ -89,8 +90,9 @@ class RegularPants extends Pants {
     public set price(p: number) {
         if (p < RegularPants.minPrice || p > RegularPants.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
@@ -136,8 +138,9 @@ class Shorts extends Pants {
     public set price(p: number) {
         if (p < Shorts.minPrice || p > Shorts.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;

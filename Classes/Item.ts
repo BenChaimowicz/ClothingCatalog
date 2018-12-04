@@ -1,8 +1,8 @@
 abstract class Item {
     private _manufacturer: string;
     private _model: string;
-    private _price: number;
     private _imageURL: string;
+    protected _price: number;
     private static VAT: number;
 
     constructor() {
@@ -20,9 +20,11 @@ abstract class Item {
         } else { this._model = m };
     }
     public get model(): string { return this._model };
-    public get price(): number { return this._price };
     public set image(img: string) { this._imageURL = img };
-    
+    public set price(p: number) {
+        this._price = p;
+    }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {};
 
     public displayImage(element:HTMLImageElement) {element.src = this._imageURL}

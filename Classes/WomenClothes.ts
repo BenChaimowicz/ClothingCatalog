@@ -44,8 +44,9 @@ class Skirt extends WomenClothes{
     public set price(p: number) {
         if (p < Skirt.minPrice || p > Skirt.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
@@ -84,8 +85,9 @@ class Dress extends WomenClothes{
     public set price(p: number) {
         if (p < Dress.minPrice || p > Dress.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
  
         element.innerHTML += this.brand + lB;
@@ -122,8 +124,9 @@ class NightDress extends Dress{
     public set price(p: number) {
         if (p < NightDress.minPrice || p > NightDress.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;

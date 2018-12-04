@@ -51,8 +51,9 @@ class ElegantShoes extends Shoes {
     public set price(p: number) {
         if (p < ElegantShoes.minPrice || p > ElegantShoes.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
@@ -91,8 +92,9 @@ class SportShoes extends Shoes{
     public set price(p: number) {
         if (p < SportShoes.minPrice || p > SportShoes.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
@@ -126,8 +128,9 @@ class ComfyShoes extends Shoes {
     public set price(p: number) {
         if (p < ComfyShoes.minPrice || p > ComfyShoes.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
@@ -162,8 +165,9 @@ class Heels extends Shoes {
     public set price(p: number) {
         if (p < Heels.minPrice || p > Heels.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
+    public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
