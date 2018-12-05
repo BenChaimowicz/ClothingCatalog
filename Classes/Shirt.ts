@@ -55,7 +55,8 @@ class TShirt extends Shirt {
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Printed Text: ' + this.text + lB;
@@ -93,7 +94,8 @@ class ButtonedShirt extends Shirt {
     public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Buttons: ' + this.buttons + lB;
@@ -130,7 +132,8 @@ class WomenShirt extends Shirt {
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Sleeve Length: ' + this.sleeveLength + ' (in meters)' + lB;
         element.innerHTML += 'Fabric: ' + this.fabric + lB;

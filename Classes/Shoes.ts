@@ -57,7 +57,8 @@ class ElegantShoes extends Shoes {
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn  + lB;
         element.innerHTML += 'Laces: ' + this.laces + lB;
@@ -86,7 +87,12 @@ class SportShoes extends Shoes{
     public set manufactureDate(date: Date) {
         if (new Date() < date) {
             throw new Error(dateError)
-        } else { this._manufactureDate = date };
+        } else {
+            this._manufactureDate = date;
+        };
+    }
+    public get manufactureDateAsString(): string {
+        return (this.manufactureDate.getDate() + '/' + this.manufactureDate.getMonth() + '/' + this.manufactureDate.getFullYear());
     }
     public get manufactureDate(): Date { return this._manufactureDate };
     public set price(p: number) {
@@ -98,11 +104,12 @@ class SportShoes extends Shoes{
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn  + lB;
         element.innerHTML += 'Laces: ' + this.laces + lB;
-        element.innerHTML += 'Manufacture Date: ' + this.manufactureDate + lB;
+        element.innerHTML += 'Manufacture Date: ' + this.manufactureDateAsString + lB;
         let imgBox: HTMLImageElement = document.createElement('img') as HTMLImageElement;
         imgBox.className = 'itemImg';
         element.appendChild(imgBox);
@@ -134,7 +141,8 @@ class ComfyShoes extends Shoes {
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn  + lB;
         element.innerHTML += 'Laces: ' + this.laces + lB;
@@ -171,7 +179,8 @@ class Heels extends Shoes {
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price +'ILS' +  lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Made in: ' + this.madeIn  + lB;
         element.innerHTML += 'Heel Height: ' + this.heel + lB;

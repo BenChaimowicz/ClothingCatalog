@@ -64,7 +64,8 @@ class Jeans extends Pants {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
         element.innerHTML += 'Ripped: ' + this.ripped + lB;
@@ -107,7 +108,8 @@ class RegularPants extends Pants {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
         element.innerHTML += 'Pockets: ' + this.pockets + lB;
@@ -128,7 +130,7 @@ class Shorts extends Pants {
         this.image = './Assets/Images/06.jpg';
     }
     set pantLength(pl) {
-        if (pl < Shorts.minLength || Shorts.maxLength) {
+        if (pl < Shorts.minLength || pl > Shorts.maxLength) {
             throw new Error(lengthError);
         }
         else {
@@ -163,7 +165,8 @@ class Shorts extends Pants {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Length: ' + this.pantLength + ' (in meters)' + lB;
         element.innerHTML += 'Fabric: ' + this.fabric + lB;

@@ -53,7 +53,8 @@ class Cap extends Hat {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.getSize + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
         element.innerHTML += 'Printed Advertisement: ' + this.ad + lB;
@@ -96,6 +97,7 @@ class TopHat extends Hat {
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
         element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Size: ' + this.getSize + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Diameter: ' + this.getDiameter + ' (in meters)' + lB;
         element.innerHTML += 'Height: ' + this.height + lB;

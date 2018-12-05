@@ -50,7 +50,8 @@ class Skirt extends WomenClothes{
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
         element.innerHTML += 'Long Skirt: ' + this.longSkirt + lB;
@@ -91,7 +92,8 @@ class Dress extends WomenClothes{
     public displayDetails(element: HTMLDivElement) {
  
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
@@ -130,7 +132,8 @@ class NightDress extends Dress{
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter  + lB;
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;

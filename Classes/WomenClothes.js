@@ -61,7 +61,8 @@ class Skirt extends WomenClothes {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
         element.innerHTML += 'Long Skirt: ' + this.longSkirt + lB;
@@ -107,7 +108,8 @@ class Dress extends WomenClothes {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;
@@ -152,7 +154,8 @@ class NightDress extends Dress {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Perimiter: ' + this.perimiter + lB;
         element.innerHTML += 'Dress Length: ' + this.dressLength + lB;

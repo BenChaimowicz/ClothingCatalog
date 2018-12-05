@@ -68,7 +68,8 @@ class Blazer extends Jacket {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
         element.innerHTML += 'Pockets: ' + this.pockets + lB;
@@ -106,7 +107,8 @@ class Coat extends Jacket {
     ;
     displayDetails(element) {
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' + lB;
+        element.innerHTML += 'Size: ' + this.size + lB;
         element.innerHTML += 'Color: ' + this.color + lB;
         element.innerHTML += 'Thickness: ' + this.thickness + ' (in meters)' + lB;
         element.innerHTML += 'Rainproof: ' + this.raincoat + lB;
