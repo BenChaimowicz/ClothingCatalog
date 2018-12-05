@@ -16,8 +16,11 @@ Glasses.GlassColors = ['Black', 'White', 'Red', 'Brown', 'Silver', 'Gold'];
 class SunGlasses extends Glasses {
     constructor() {
         super();
+        this._name = 'Sunglasses';
         this.image = './Assets/Images/19.jpg';
     }
+    get name() { return this._name; }
+    ;
     set glassColor(gc) {
         if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc; }) > -1) {
             this._glassColor = gc;
@@ -58,8 +61,11 @@ SunGlasses.maxPrice = 499;
 class OpticGlasses extends Glasses {
     constructor() {
         super();
+        this._name = 'Optic Glasses';
         this.image = './Assets/Images/20.jpg';
     }
+    get name() { return this._name; }
+    ;
     set readDistance(rd) {
         if (rd < OpticGlasses.minReadDistance || rd > OpticGlasses.maxReadDistance) {
             throw new Error(distanceError);

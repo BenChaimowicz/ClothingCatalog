@@ -29,6 +29,7 @@ abstract class Shoes extends Item{
 }
 
 class ElegantShoes extends Shoes {
+    private _name: string = 'Elegant Shoes';
     private _laces: boolean;
     private _material: string;
 
@@ -40,6 +41,7 @@ class ElegantShoes extends Shoes {
         super();
         this.image = './Assets/Images/10.jpg';
     }
+    public get name(): string { return this._name };
     public set laces(l: boolean) { this._laces = l };
     public get laces(): boolean { return this._laces };
     public set material(m: string) {
@@ -72,6 +74,7 @@ class ElegantShoes extends Shoes {
 }
 
 class SportShoes extends Shoes{
+    private _name: string = 'Sport Shoes';
     private _laces: boolean;
     private _manufactureDate: Date;
 
@@ -82,6 +85,7 @@ class SportShoes extends Shoes{
         super();
         this.image = './Assets/Images/11.jpg';
     }
+    public get name(): string { return this._name };
     public set laces(l: boolean) { this._laces = l };
     public get laces(): boolean { return this._laces };
     public set manufactureDate(date: Date) {
@@ -118,6 +122,7 @@ class SportShoes extends Shoes{
     }
 }
 class ComfyShoes extends Shoes {
+    private _name: string = 'Comfy Shoes';
     private _laces: boolean;
     private _orthopedic: boolean;
 
@@ -128,6 +133,7 @@ class ComfyShoes extends Shoes {
         super();
         this.image = './Assets/Images/12.jpg';
     }
+    public get name(): string { return this._name };
     public set laces(l: boolean) { this._laces = l };
     public get laces(): boolean { return this._laces };
     public set orthopedic(o: boolean) { this._orthopedic = o };
@@ -155,6 +161,7 @@ class ComfyShoes extends Shoes {
     }
 }
 class Heels extends Shoes {
+    private _name: string = 'Heels';
     private _heelType: string;
 
     public static readonly HeelTypes: string[] = ['Low', 'Medium', 'High'];
@@ -165,6 +172,7 @@ class Heels extends Shoes {
         super();
         this.image = './Assets/Images/13.jpg';
     }
+    public get name(): string { return this._name };
     public set heel(h: string) {
         if (Heels.HeelTypes.findIndex(ele => { return ele === h }) > -1) {
             this._heelType = h;

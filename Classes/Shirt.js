@@ -42,8 +42,11 @@ Shirt.minSleeveLength = 0;
 class TShirt extends Shirt {
     constructor() {
         super();
+        this._name = 'T-Shirt';
         this.image = './Assets/Images/01.jpg';
     }
+    get name() { return this._name; }
+    ;
     set text(txt) {
         if (txt != '' || txt != undefined) {
             this._text = txt;
@@ -86,8 +89,11 @@ TShirt.maxPrice = 149;
 class ButtonedShirt extends Shirt {
     constructor() {
         super();
+        this._name = 'Buttoned Shirt';
         this.image = './Assets/Images/02.jpg';
     }
+    get name() { return this._name; }
+    ;
     set buttons(b) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {
             throw new Error(ButtonedShirt.buttonError);
@@ -132,8 +138,11 @@ ButtonedShirt.maxPrice = 299;
 class WomenShirt extends Shirt {
     constructor() {
         super();
+        this._name = "Woman Shirt";
         this.image = './Assets/Images/03.jpg';
     }
+    get name() { return this._name; }
+    ;
     set fabric(f) {
         if (WomenShirt.shirtFabrics.findIndex(ele => ele === f) > -1) {
             this._fabric = f;

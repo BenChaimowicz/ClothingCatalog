@@ -1,4 +1,5 @@
 class Belt extends Item {
+    private _name: string = 'Belt';
     private _beltColor: string;
     private _buckleColor: string;
     private _buckleMat: string;
@@ -16,6 +17,7 @@ class Belt extends Item {
         this._beltDim = new Dimensions();
     }
 
+    public get name(): string { return this._name };
     public set price(p: number) {
         if (p < Belt.minPrice || p > Belt.maxPrice) {
             throw new Error(priceError);

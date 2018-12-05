@@ -34,8 +34,11 @@ Hat.maxSize = Hat.maxDiameter;
 class Cap extends Hat {
     constructor() {
         super();
+        this._name = 'Cap';
         this.image = './Assets/Images/16.jpg';
     }
+    get name() { return this._name; }
+    ;
     set ad(ad) { this._ad = ad; }
     ;
     get ad() { return this._ad; }
@@ -70,8 +73,11 @@ Cap.maxPrice = 99;
 class TopHat extends Hat {
     constructor() {
         super();
+        this._name = 'Top Hat';
         this.image = './Assets/Images/17.jpg';
     }
+    get name() { return this._name; }
+    ;
     set height(h) {
         if (h < TopHat.minHeight || h > TopHat.maxHeight) {
             throw new Error(heightError);

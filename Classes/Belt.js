@@ -2,9 +2,12 @@
 class Belt extends Item {
     constructor() {
         super();
+        this._name = 'Belt';
         this.image = './Assets/Images/18.jpg';
         this._beltDim = new Dimensions();
     }
+    get name() { return this._name; }
+    ;
     set price(p) {
         if (p < Belt.minPrice || p > Belt.maxPrice) {
             throw new Error(priceError);

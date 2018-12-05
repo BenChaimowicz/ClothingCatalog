@@ -42,8 +42,11 @@ Jacket.maxSize = 52;
 class Blazer extends Jacket {
     constructor() {
         super();
+        this._name = 'Blazer';
         this.image = './Assets/Images/14.jpg';
     }
+    get name() { return this._name; }
+    ;
     set pockets(p) {
         if (p < Blazer.minPockets || p > Blazer.maxPockets) {
             throw new Error(pocketError);
@@ -87,8 +90,11 @@ Blazer.maxPrice = 999;
 class Coat extends Jacket {
     constructor() {
         super();
+        this._name = 'Coat';
         this.image = './Assets/Images/15.jpg';
     }
+    get name() { return this._name; }
+    ;
     set raincoat(r) {
         this._raincoat = r;
     }

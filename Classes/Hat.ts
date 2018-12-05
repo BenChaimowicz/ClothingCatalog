@@ -24,6 +24,7 @@ abstract class Hat extends Item {
     public get getSize(): number { return this._size };
 }
 class Cap extends Hat {
+    private _name: string = 'Cap';
     private _ad: boolean;
 
     public static readonly minPrice: number = 29;
@@ -33,6 +34,7 @@ class Cap extends Hat {
         super();
         this.image = './Assets/Images/16.jpg';
     }
+    public get name(): string { return this._name };
     public set ad(ad: boolean) { this._ad = ad };
     public get ad(): boolean { return this._ad };
     public set price(p: number) {
@@ -56,6 +58,7 @@ class Cap extends Hat {
     }
 }
 class TopHat extends Hat {
+    private _name: string = 'Top Hat';
     private _height: number;
 
     public static readonly minHeight: number = 0.2;
@@ -67,6 +70,7 @@ class TopHat extends Hat {
         super();
         this.image = './Assets/Images/17.jpg';
     }
+    public get name(): string { return this._name };
     public set height(h: number) {
         if (h < TopHat.minHeight || h > TopHat.maxHeight) {
             throw new Error(heightError);

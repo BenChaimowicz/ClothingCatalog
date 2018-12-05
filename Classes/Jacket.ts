@@ -29,6 +29,7 @@ abstract class Jacket extends Item {
     public get size(): number { return this._size };
 }
 class Blazer extends Jacket{
+    private _name: string = 'Blazer';
     private _pockets: number;
 
     public static readonly minPockets: number = 0;
@@ -40,6 +41,7 @@ class Blazer extends Jacket{
         super();
         this.image = './Assets/Images/14.jpg';
     }
+    public get name(): string { return this._name };
     public set pockets(p: number) {
         if (p < Blazer.minPockets || p > Blazer.maxPockets) {
             throw new Error(pocketError);
@@ -67,6 +69,7 @@ class Blazer extends Jacket{
     }
 }
 class Coat extends Jacket{
+    private _name: string = 'Coat';
     private _raincoat: boolean;
 
     public static readonly minPrice: number = 299;
@@ -76,6 +79,7 @@ class Coat extends Jacket{
         super();
         this.image = './Assets/Images/15.jpg';
     }
+    public get name(): string { return this._name };
     public set raincoat(r: boolean) {
         this._raincoat = r;
     }

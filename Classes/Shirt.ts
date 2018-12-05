@@ -30,6 +30,7 @@ abstract class Shirt extends Item {
 }
 
 class TShirt extends Shirt {
+    private _name: string = 'T-Shirt';
     private _text: string;
 
     public static readonly TShirtText: string[] = ['Go', 'Hello', 'Goodbye', 'Fuck Off', null];
@@ -40,6 +41,7 @@ class TShirt extends Shirt {
         super();
         this.image = './Assets/Images/01.jpg';
     }
+    public get name(): string { return this._name };
     public set text(txt: string) {
         if (txt != '' || txt != undefined) {
             this._text = txt;
@@ -68,6 +70,7 @@ class TShirt extends Shirt {
     }
 }
 class ButtonedShirt extends Shirt {
+    private _name: string = 'Buttoned Shirt';
     private _buttons: number;
 
     public static readonly buttonError: string = 'Invalid button number!';
@@ -80,6 +83,7 @@ class ButtonedShirt extends Shirt {
         super();
         this.image = './Assets/Images/02.jpg';
     }
+    public get name(): string { return this._name };
     public set buttons(b: number) {
         if (b < ButtonedShirt.minButtonCount || b > ButtonedShirt.maxButtonCount) {
             throw new Error(ButtonedShirt.buttonError);
@@ -107,6 +111,7 @@ class ButtonedShirt extends Shirt {
     }
 }
 class WomenShirt extends Shirt {
+    private _name: string = "Woman Shirt";
     private _fabric: string;
 
     public static readonly shirtFabrics: string[] = ['Cotton', 'Wool', 'Linen', 'Polyester'];
@@ -117,6 +122,7 @@ class WomenShirt extends Shirt {
         super();
         this.image = './Assets/Images/03.jpg';
     }
+    public get name(): string { return this._name };
     public set fabric(f: string) {
         if (WomenShirt.shirtFabrics.findIndex(ele => ele === f) > -1) {
             this._fabric = f;

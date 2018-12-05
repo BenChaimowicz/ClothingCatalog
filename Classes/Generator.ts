@@ -116,6 +116,8 @@ class Generator {
                 return new SunGlasses();
             case 20:
                 return new OpticGlasses();
+            default:
+                throw new Error('No Such Item!');
         }
     }
 

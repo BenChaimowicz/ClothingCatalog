@@ -36,6 +36,7 @@ abstract class Pants extends Item {
     
 }
 class Jeans extends Pants {
+    private _name: 'Jeans';
     private _ripped: boolean;
 
     public static readonly minPrice: number = 149;
@@ -45,6 +46,7 @@ class Jeans extends Pants {
         super();
         this.image = './Assets/Images/04.jpg';
     }
+    public get name(): string { return this._name };
     public set ripped(r: boolean) { this._ripped = r };
     public get ripped(): boolean { return this._ripped };
     public set price(p: number) {
@@ -69,6 +71,7 @@ class Jeans extends Pants {
     }
 }
 class RegularPants extends Pants {
+    private _name: string = 'Regular Pants';
     private _pockets: number;
 
     public static readonly minPockets: number = 2;
@@ -80,6 +83,7 @@ class RegularPants extends Pants {
         super();
         this.image = './Assets/Images/05.jpg';
     }
+    public get name(): string { return this._name };
     public set pockets(po: number) {
         if (po < RegularPants.minPockets || po > RegularPants.maxPockets) {
             throw new Error(pocketError);
@@ -110,6 +114,7 @@ class RegularPants extends Pants {
     }
 }
 class Shorts extends Pants {
+    private _name: string = 'Shorts';
     private _fabric: string;
     private _shortPantLength: number;
 
@@ -123,6 +128,7 @@ class Shorts extends Pants {
         super();
         this.image = './Assets/Images/06.jpg';
     }
+    public get name(): string { return this._name };
     public set pantLength(pl: number) {
         if (pl < Shorts.minLength || pl > Shorts.maxLength) {
             throw new Error(lengthError);

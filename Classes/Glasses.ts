@@ -12,6 +12,7 @@ abstract class Glasses extends Item{
     public get frameColor(): string { return this._frameColor };
 }
 class SunGlasses extends Glasses {
+    private _name: string = 'Sunglasses';
     private _glassColor: string;
 
     public static readonly ShadeColors: string[] = ['Black', 'Yellow', 'Red', 'Blue', 'Rainbow'];
@@ -22,6 +23,7 @@ class SunGlasses extends Glasses {
         super();
         this.image = './Assets/Images/19.jpg';
     }
+    public get name(): string { return this._name };
     public set glassColor(gc: string) {
         if (SunGlasses.ShadeColors.findIndex(ele => { return ele === gc }) > -1) {
             this._glassColor = gc;
@@ -47,6 +49,7 @@ class SunGlasses extends Glasses {
     }
 }
 class OpticGlasses extends Glasses{
+    private _name: string = 'Optic Glasses';
     private _readDist: number;
 
     public static readonly minReadDistance: number = 0.2;
@@ -58,6 +61,8 @@ class OpticGlasses extends Glasses{
         super();
         this.image = './Assets/Images/20.jpg';
     }
+
+    public get name(): string { return this._name };
     public set readDistance(rd: number) {
         if (rd < OpticGlasses.minReadDistance || rd > OpticGlasses.maxReadDistance) {
             throw new Error(distanceError);

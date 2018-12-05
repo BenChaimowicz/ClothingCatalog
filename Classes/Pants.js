@@ -47,6 +47,8 @@ class Jeans extends Pants {
         super();
         this.image = './Assets/Images/04.jpg';
     }
+    get name() { return this._name; }
+    ;
     set ripped(r) { this._ripped = r; }
     ;
     get ripped() { return this._ripped; }
@@ -81,8 +83,11 @@ Jeans.maxPrice = 349;
 class RegularPants extends Pants {
     constructor() {
         super();
+        this._name = 'Regular Pants';
         this.image = './Assets/Images/05.jpg';
     }
+    get name() { return this._name; }
+    ;
     set pockets(po) {
         if (po < RegularPants.minPockets || po > RegularPants.maxPockets) {
             throw new Error(pocketError);
@@ -127,8 +132,11 @@ RegularPants.maxPrice = 349;
 class Shorts extends Pants {
     constructor() {
         super();
+        this._name = 'Shorts';
         this.image = './Assets/Images/06.jpg';
     }
+    get name() { return this._name; }
+    ;
     set pantLength(pl) {
         if (pl < Shorts.minLength || pl > Shorts.maxLength) {
             throw new Error(lengthError);

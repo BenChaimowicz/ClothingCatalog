@@ -42,8 +42,11 @@ WomenClothes.maxSize = 48;
 class Skirt extends WomenClothes {
     constructor() {
         super();
+        this._name = 'Skirt';
         this.image = './Assets/Images/07.jpg';
     }
+    get name() { return this._name; }
+    ;
     set longSkirt(s) { this._isLongSkirt = s; }
     ;
     get longSkirt() { return this._isLongSkirt; }
@@ -78,8 +81,11 @@ Skirt.maxPrice = 199;
 class Dress extends WomenClothes {
     constructor() {
         super();
+        this._name = 'Dress';
         this.image = './Assets/Images/08.jpg';
     }
+    get name() { return this._name; }
+    ;
     set dressLength(l) {
         if (l < Dress.minLength || l > Dress.maxLength) {
             throw new Error(lengthError);
@@ -128,8 +134,11 @@ Dress.maxPrice = 999;
 class NightDress extends Dress {
     constructor() {
         super();
+        this._name = 'Night Dress';
         this.image = './Assets/Images/09.jpg';
     }
+    get name() { return this._name; }
+    ;
     set fabric(f) {
         if (NightDress.NDressFabrics.findIndex(fa => { return fa === f; }) > -1) {
             this._fabric = f;

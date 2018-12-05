@@ -30,6 +30,7 @@ abstract class WomenClothes extends Item {
 }
 
 class Skirt extends WomenClothes{
+    private _name: string = 'Skirt';
     private _isLongSkirt: boolean;
 
     public static readonly minPrice: number = 59;
@@ -39,6 +40,7 @@ class Skirt extends WomenClothes{
         super();
         this.image = './Assets/Images/07.jpg';
     }
+    public get name(): string { return this._name };
     public set longSkirt(s: boolean) { this._isLongSkirt = s };
     public get longSkirt(): boolean { return this._isLongSkirt };
     public set price(p: number) {
@@ -63,6 +65,7 @@ class Skirt extends WomenClothes{
     }
 }
 class Dress extends WomenClothes{
+    protected _name: string = 'Dress';
     private _dressLength: number;
     private _bareBack: boolean;
 
@@ -75,6 +78,7 @@ class Dress extends WomenClothes{
         super();
         this.image = './Assets/Images/08.jpg';
     }
+    public get name(): string { return this._name };
     public set dressLength(l: number) {
         if (l < Dress.minLength || l > Dress.maxLength) {
             throw new Error(lengthError);
@@ -114,9 +118,10 @@ class NightDress extends Dress{
 
     constructor() {
         super();
+        this._name = 'Night Dress';
         this.image = './Assets/Images/09.jpg';
     }
-
+    public get name(): string { return this._name };
     public set fabric(f: string) {
         if (NightDress.NDressFabrics.findIndex(fa => { return fa === f }) > -1) {
             this._fabric = f;

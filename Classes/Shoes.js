@@ -41,8 +41,11 @@ Shoes.maxSize = 46;
 class ElegantShoes extends Shoes {
     constructor() {
         super();
+        this._name = 'Elegant Shoes';
         this.image = './Assets/Images/10.jpg';
     }
+    get name() { return this._name; }
+    ;
     set laces(l) { this._laces = l; }
     ;
     get laces() { return this._laces; }
@@ -90,8 +93,11 @@ ElegantShoes.maxPrice = 999;
 class SportShoes extends Shoes {
     constructor() {
         super();
+        this._name = 'Sport Shoes';
         this.image = './Assets/Images/11.jpg';
     }
+    get name() { return this._name; }
+    ;
     set laces(l) { this._laces = l; }
     ;
     get laces() { return this._laces; }
@@ -141,8 +147,11 @@ SportShoes.maxPrice = 699;
 class ComfyShoes extends Shoes {
     constructor() {
         super();
+        this._name = 'Comfy Shoes';
         this.image = './Assets/Images/12.jpg';
     }
+    get name() { return this._name; }
+    ;
     set laces(l) { this._laces = l; }
     ;
     get laces() { return this._laces; }
@@ -182,8 +191,11 @@ ComfyShoes.maxPrice = 399;
 class Heels extends Shoes {
     constructor() {
         super();
+        this._name = 'Heels';
         this.image = './Assets/Images/13.jpg';
     }
+    get name() { return this._name; }
+    ;
     set heel(h) {
         if (Heels.HeelTypes.findIndex(ele => { return ele === h; }) > -1) {
             this._heelType = h;
