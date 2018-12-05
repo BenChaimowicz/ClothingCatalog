@@ -10,5 +10,9 @@ function createSpecificItem(index) {
     let item = generator.getRandomItem(index);
     item.displayDetails(itemDisplayer);
 }
+function clearScreen() {
+    itemDisplayer.innerHTML = '';
+}
+clearButton.onclick = () => { clearScreen(); };
 genRndSpecButton.onclick = () => { createSpecificItem(parseInt(indexInput.value)); };
 genButton.onclick = () => { createAndDisplayRandom(); };

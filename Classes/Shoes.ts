@@ -170,6 +170,7 @@ class Heels extends Shoes {
             this._heelType = h;
         } else { throw new Error(heelError) };
     }
+    public get heel(): string { return this._heelType };
     public set price(p: number) {
         if (p < Heels.minPrice || p > Heels.maxPrice) {
             throw new Error(priceError);

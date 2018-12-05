@@ -16,6 +16,7 @@ const distanceError: string = 'Invalid distance!';
 
 const lB: string = '<br>';
  
+const clearButton: HTMLButtonElement = document.querySelector('#clearBtn');
 const genButton: HTMLButtonElement = document.querySelector('#genBtn');
 const genRndSpecButton: HTMLButtonElement = document.querySelector('#genSpecificRndBtn');
 const indexInput: HTMLInputElement = document.querySelector('#itemIndexInput');

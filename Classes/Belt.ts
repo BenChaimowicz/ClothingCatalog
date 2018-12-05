@@ -46,9 +46,9 @@ class Belt extends Item {
     public displayDetails(element: HTMLDivElement) {
 
         element.innerHTML += this.brand + lB;
-        element.innerHTML += 'Price: ' + this.price + lB;
+        element.innerHTML += 'Price: ' + this.price + 'ILS' +lB;
         element.innerHTML += 'Color: ' + this.beltColor + lB;
-        element.innerHTML += 'Buckle info: ' + this.buckleColor + ' ' + this.buckleMaterial + lB;
+        element.innerHTML += 'Buckle info: ' + this.buckleColor + ', ' + this.buckleMaterial + lB;
         element.innerHTML += 'Dimensions in meters: (L/W/H)' + this.beltDimensions.length + '/' + this.beltDimensions.width + '/' + this.beltDimensions.height + lB;
         let imgBox: HTMLImageElement = document.createElement('img');
         imgBox.className = 'itemImg';

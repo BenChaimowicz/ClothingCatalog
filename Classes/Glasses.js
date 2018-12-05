@@ -76,7 +76,7 @@ class OpticGlasses extends Glasses {
             throw new Error(priceError);
         }
         else {
-            this.price = p;
+            this._price = p;
         }
         ;
     }

@@ -67,7 +67,7 @@ class OpticGlasses extends Glasses{
     public set price(p: number) {
         if (p < OpticGlasses.minPrice || p > OpticGlasses.maxPrice) {
             throw new Error(priceError);
-        } else { this.price = p };
+        } else { this._price = p };
     }
     public get price(): number { return this._price };
     public displayDetails(element: HTMLDivElement) {

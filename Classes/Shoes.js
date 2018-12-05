@@ -193,6 +193,8 @@ class Heels extends Shoes {
         }
         ;
     }
+    get heel() { return this._heelType; }
+    ;
     set price(p) {
         if (p < Heels.minPrice || p > Heels.maxPrice) {
             throw new Error(priceError);
