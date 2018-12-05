@@ -184,7 +184,7 @@ class Generator {
         this.womenClothesStandards(dress);
         dress.dressLength = this.getRandomNumber(Dress.minLength, Dress.maxLength, true);
         dress.bareback = this.getRandomNumber(0, 1);
-        dress.price = this.getRandomNumber(Dress.minPrice, Dress.maxPrice);
+        dress instanceof NightDress ? null : dress.price = this.getRandomNumber(Dress.minPrice, Dress.maxPrice);
     }
     private createNDress(nDress: NightDress) {
         nDress.fabric = this.randomFromArray(NightDress.NDressFabrics);
