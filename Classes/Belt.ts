@@ -74,14 +74,17 @@ class Dimensions {
             throw new Error('Invalid belt length!');
         } else { this._length = l };
     }
+    public get length(): number { return this._length };
     public set width(w: number) {
         if (w > Dimensions.maxWidth || w < Dimensions.minWidth) {
             throw new Error('Invalid belt width!');
         } else { this._width = w };
     }
+    public get width(): number { return this._width };
     public set height(h: number) {
         if (h > Dimensions.maxHeight || h < Dimensions.minHeight) {
             throw new Error('Invalid belt height!');
         } else { this._height = h };
     }
+    public get height(): number { return this._height };
 }

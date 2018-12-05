@@ -81,6 +81,8 @@ class Dimensions {
         }
         ;
     }
+    get length() { return this._length; }
+    ;
     set width(w) {
         if (w > Dimensions.maxWidth || w < Dimensions.minWidth) {
             throw new Error('Invalid belt width!');
@@ -90,6 +92,8 @@ class Dimensions {
         }
         ;
     }
+    get width() { return this._width; }
+    ;
     set height(h) {
         if (h > Dimensions.maxHeight || h < Dimensions.minHeight) {
             throw new Error('Invalid belt height!');
@@ -99,6 +103,8 @@ class Dimensions {
         }
         ;
     }
+    get height() { return this._height; }
+    ;
 }
 Dimensions.minLength = 0.5;
 Dimensions.maxLength = 2;
